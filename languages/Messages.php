@@ -44,6 +44,16 @@ $messages['dsb'] = array(
 	'wom-desc' => 'Jadnory objektowy model za wikiwužywarja',
 );
 
+/** Spanish (Español)
+ * @author Armando-Martin
+ * @author Bea.miau
+ */
+$messages['es'] = array(
+	'objecteditor' => 'Editor de objetos',
+	'wom_editor' => 'Modelo de objetos',
+	'wom-desc' => 'Modelo de objetos de página simple para los usuarios del wiki',
+);
+
 /** French (Français)
  * @author Gomoko
  */
