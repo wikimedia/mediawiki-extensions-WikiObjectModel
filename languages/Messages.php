@@ -215,3 +215,12 @@ $messages['vi'] = array(
 	'wom-desc' => 'Mô hình đối tượng trang dễ sử dụng trên wiki',
 );
 
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Linforest
+ */
+$messages['zh-hans'] = array(
+	'objecteditor' => '对象编辑器',
+	'wom_editor' => '对象模型',
+	'wom-desc' => '针对维基站点用户的简易页面对象模型',
+);
+
