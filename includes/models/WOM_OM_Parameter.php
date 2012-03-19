@@ -10,20 +10,26 @@
 
 class WOMParameterModel extends WikiObjectModelCollection {
 	protected $m_key;
+	protected $m_pipe;
 
 	public function __construct( $key = '' ) {
 		parent::__construct( WOM_TYPE_PARAMETER );
 		$this->m_key = $key;
+		$this->m_pipe = true;
 	}
 
 	public function getKey() {
 		return $this->m_key;
 	}
 
+	public function setPipe( $pipe ) {
+		$this->m_pipe = $pipe;
+	}
+
 	public function getWikiText() {
 		return ( $this->m_key == '' ? "" : ( $this->m_key . '=' ) ) .
 			$this->getValueText() .
-			'|';
+			( $this->m_pipe ? '|' : '' );
 	}
 
 	public function getValueText() {

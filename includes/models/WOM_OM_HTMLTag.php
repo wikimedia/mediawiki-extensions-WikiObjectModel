@@ -22,7 +22,7 @@ class WOMHTMLTagModel extends WikiObjectModelCollection {
 		return $this->m_name;
 	}
 
-	public function setName( $name ) {
+	public function setTagName( $name ) {
 		$this->m_name = $name;
 	}
 
@@ -37,6 +37,7 @@ class WOMHTMLTagModel extends WikiObjectModelCollection {
 			$v = preg_replace( '/^[\'"](.*)[\'"]$/', '$1', $v );
 			if ( $attr == $a ) return $v;
 		}
+		return null;
 	}
 
 	public function setAttributes( $attrs ) {
@@ -62,14 +63,14 @@ class WOMHTMLTagModel extends WikiObjectModelCollection {
 	public function setXMLAttribute( $key, $value ) {
 		if ( $value == '' ) throw new MWException( __METHOD__ . ": value cannot be empty" );
 
-		if ( $key == 'name' ) {
+		if ( $key == 'tag' ) {
 			$this->m_name = $value;
 		} else {
-			throw new MWException( __METHOD__ . ": invalid key/value pair: name=html_tag_name" );
+			$attrs[$key] = $value;
 		}
 	}
 	protected function getXMLAttributes() {
-		$ret = 'name="' . self::xml_entities( $this->m_name ) . '"';
+		$ret = 'tag="' . self::xml_entities( $this->m_name ) . '"';
 		foreach ( $this->m_attrs as $a => $v ) {
 			$v = preg_replace( '/^"(.*)"$/', '$1', $v );
 			if ( $a == 'id' ) $a = 'tag_id';

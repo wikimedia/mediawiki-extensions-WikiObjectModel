@@ -6,26 +6,17 @@
  */
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
-define( 'WOM_VERSION', '1.0.1 alpha' );
-
-$wgExtensionCredits['parserhook'][] = array(
-	'path' => __FILE__,
-	'name' => 'Wiki ObjectModel Extension',
-	'version' => WOM_VERSION,
-	'author' => "Ning Hu, Justin Zhang, [http://smwforum.ontoprise.com/smwforum/index.php/Jesse_Wang Jesse Wang], sponsored by [http://projecthalo.com Project Halo], [http://www.vulcan.com Vulcan Inc.]",
-	'url' => 'http://wiking.vulcan.com/dev',
-	'descriptionmsg' => 'wom-desc'
-);
+define( 'WOM_VERSION', '1.0.2 alpha' );
 
 $wgOMIP = $IP . '/extensions/WikiObjectModel';
 $wgOMScriptPath = $wgScriptPath . '/extensions/WikiObjectModel';
 
-$wgExtensionFunctions[] = 'smwfOMInitLanguage';
+$wgExtensionFunctions[] = 'wfWOMSetupExtension';
 $wgExtensionMessagesFiles['WikiObjectModel'] = $wgOMIP . '/languages/Messages.php';
 
 require_once( $wgOMIP . '/includes/WOM_Setup.php' );
 
-function smwfOMInitLanguageObject( $langcode, $fallback = null ) {
+function wfWOMInitLanguageObject( $langcode, $fallback = null ) {
 	global $wgOMIP;
 
 	$langClass = 'WOMLanguage' . str_replace( '-', '_', ucfirst( $langcode ) );
@@ -45,10 +36,34 @@ function smwfOMInitLanguageObject( $langcode, $fallback = null ) {
 	return new $langClass();
 }
 
-function smwfOMInitLanguage() {
+function wfWOMInitLanguage() {
 	global $wgLanguageCode, $wgLang;
 	global $wgOMContLang, $wgOMLang;
 
-	$wgOMContLang = smwfOMInitLanguageObject( $wgLanguageCode );
-	$wgOMLang = smwfOMInitLanguageObject( $wgLang->getCode(), $wgOMContLang );
+	$wgOMContLang = wfWOMInitLanguageObject( $wgLanguageCode );
+	$wgOMLang = wfWOMInitLanguageObject( $wgLang->getCode(), $wgOMContLang );
+}
+
+function wfWOMRegisterParserFunctionParsers( &$parsers ) {
+	global $wgOMPFParsers;
+	$parsers += $wgOMPFParsers;
+	return true;
+}
+
+function wfWOMSetupExtension() {
+	global $wgHooks, $wgExtensionCredits;
+
+	wfWOMInitLanguage();
+
+	$wgHooks['womRegisterParserFunctionParsers'][] = 'wfWOMRegisterParserFunctionParsers';
+
+	$wgExtensionCredits['parserhook'][] = array(
+		'path' => __FILE__,
+		'name' => 'Wiki ObjectModel Extension',
+		'version' => WOM_VERSION,
+		'author' => "Ning Hu, Justin Zhang, [http://smwforum.ontoprise.com/smwforum/index.php/Jesse_Wang Jesse Wang], sponsored by [http://projecthalo.com Project Halo], [http://www.vulcan.com Vulcan Inc.]",
+		'url' => 'http://wiking.vulcan.com/dev',
+		'descriptionmsg' => 'wom-desc'
+	);
+	return true;
 }

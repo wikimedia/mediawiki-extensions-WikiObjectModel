@@ -13,6 +13,10 @@ class WOMMagicWordParser extends WOMTemplateParser {
 		$this->m_parserId = WOM_PARSER_ID_MAGICWORD;
 	}
 
+	public function getValidModelTypes() {
+		return array( WOM_TYPE_MAGICWORD );
+	}
+
 	static $underscores = array( '0' => '', '1' => '' );
 	static $mwa = null;
 	static function getDoubleUnderscoreRegex() {

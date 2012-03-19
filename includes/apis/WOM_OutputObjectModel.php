@@ -38,8 +38,8 @@ class ApiWOMOutputObjectModel extends ApiBase {
 		if ( !$article->exists() )
 			$this->dieUsage( "Article doesn't exist ($page_name)", 3 );
 
-		$page_obj = WOMOutputProcessor::getOutputData( $articleTitle, $rid );
 		try {
+			$page_obj = WOMOutputProcessor::getOutputData( $articleTitle, $rid );
 			$objs = WOMProcessor::getObjIdByXPath2( $page_obj, $xpath );
 		} catch ( Exception $e ) {
 			$err = $e->getMessage();
@@ -55,6 +55,7 @@ class ApiWOMOutputObjectModel extends ApiBase {
 			$this->getResult()->setContent( $result['message'], $err );
 		} else {
 			$result['result'] = 'Success';
+			$result['revisionID'] = $page_obj->getRevisionID();
 
 			// pay attention to special xml tag, e.g., <property><value>...</value></property>
 			$result['return'] = array();
@@ -81,7 +82,7 @@ class ApiWOMOutputObjectModel extends ApiBase {
 					header ( "Content-Type: application/rdf+xml" );
 					echo <<<OUTPUT
 <?xml version="1.0" encoding="UTF-8" ?>
-<api><womoutput result="Success"><return>
+<api><womoutput result="Success" revisionID="{$page_obj->getRevisionID()}"><return>
 {$xml}
 </return></womoutput></api>
 OUTPUT;

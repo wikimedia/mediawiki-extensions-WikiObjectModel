@@ -13,6 +13,10 @@ class WOMHTMLTagParser extends WikiObjectModelParser {
 		$this->m_parserId = WOM_PARSER_ID_HTMLTAG;
 	}
 
+	public function getValidModelTypes() {
+		return array( WOM_TYPE_HTMLTAG );
+	}
+
 	public function parseNext( $text, WikiObjectModelCollection $parentObj, $offset = 0 ) {
 		$text = substr( $text, $offset );
 		// this is not a proper html tag regex, for strings include char '>'

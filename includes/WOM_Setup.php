@@ -14,8 +14,6 @@ $wgAutoloadClasses['WOMPageModel']             =  $wgOMIP . '/includes/models/WO
 $wgAutoloadClasses['WOMTemplateModel']         =  $wgOMIP . '/includes/models/WOM_OM_Template.php';
 $wgAutoloadClasses['WOMParserFunctionModel']   =  $wgOMIP . '/includes/models/WOM_OM_ParserFunction.php';
 $wgAutoloadClasses['WOMParameterModel']        =  $wgOMIP . '/includes/models/WOM_OM_Parameter.php';
-$wgAutoloadClasses['WOMQuerystringModel']      =  $wgOMIP . '/includes/models/WOM_OM_Querystring.php';
-$wgAutoloadClasses['WOMQueryPrintoutModel']    =  $wgOMIP . '/includes/models/WOM_OM_QueryPrintout.php';
 $wgAutoloadClasses['WOMParamValueModel']       =  $wgOMIP . '/includes/models/WOM_OM_ParamValue.php';
 $wgAutoloadClasses['WOMTemplateFieldModel']    =  $wgOMIP . '/includes/models/WOM_OM_TmplField.php';
 $wgAutoloadClasses['WOMPropertyModel']         =  $wgOMIP . '/includes/models/WOM_OM_Property.php';
@@ -32,6 +30,7 @@ $wgAutoloadClasses['WOMTableCellModel']        =  $wgOMIP . '/includes/models/WO
 $wgAutoloadClasses['WOMMagicWordModel']        =  $wgOMIP . '/includes/models/WOM_OM_MagicWord.php';
 $wgAutoloadClasses['WOMHTMLTagModel']          =  $wgOMIP . '/includes/models/WOM_OM_HTMLTag.php';
 $wgAutoloadClasses['WOMTemplateFieldHolderModel'] =  $wgOMIP . '/includes/models/WOM_OM_TmplFieldHolder.php';
+$wgAutoloadClasses['WOMRedirectModel']         =  $wgOMIP . '/includes/models/WOM_OM_Redirect.php';
 
 // Definitions
 define( 'WOM_TYPE_PAGE'           , 'page' );
@@ -45,8 +44,6 @@ define( 'WOM_TYPE_TEXT'           , 'text' );
 define( 'WOM_TYPE_TEMPLATE'       , 'template' );
 define( 'WOM_TYPE_PARSERFUNCTION' , 'parser_function' );
 define( 'WOM_TYPE_PARAMETER'      , 'parameter' );
-define( 'WOM_TYPE_QUERYSTRING'    , 'querystring' );
-define( 'WOM_TYPE_QUERYPRINTOUT'  , 'printout' );
 define( 'WOM_TYPE_PARAM_VALUE'    , 'value' );
 define( 'WOM_TYPE_TMPL_FIELD'     , 'template_field' );
 define( 'WOM_TYPE_SENTENCE'       , 'sentence' );
@@ -57,6 +54,7 @@ define( 'WOM_TYPE_TBL_CELL'       , 'table_cell' );
 define( 'WOM_TYPE_MAGICWORD'      , 'magicword' );
 define( 'WOM_TYPE_HTMLTAG'        , 'html' );
 define( 'WOM_TYPE_TMPL_FIELD_HOLDER', 'template_field_holder' );
+define( 'WOM_TYPE_REDIRECT'       , 'redirect' );
 
 // POM Parser
 $wgAutoloadClasses['WikiObjectModelParser']     =  $wgOMIP . '/includes/parsers/WikiObjectModelParser.php';
@@ -76,6 +74,7 @@ $wgAutoloadClasses['WOMTableCellParser']       =  $wgOMIP . '/includes/parsers/W
 $wgAutoloadClasses['WOMMagicWordParser']       =  $wgOMIP . '/includes/parsers/WOMMagicWordParser.php';
 $wgAutoloadClasses['WOMHTMLTagParser']         =  $wgOMIP . '/includes/parsers/WOMHTMLTagParser.php';
 $wgAutoloadClasses['WOMTemplateFieldHolderParser'] =  $wgOMIP . '/includes/parsers/WOMTemplateFieldHolderParser.php';
+$wgAutoloadClasses['WOMRedirectParser']        =  $wgOMIP . '/includes/parsers/WOMRedirectParser.php';
 
 // Definitions
 define( 'WOM_PARSER_ID_CATEGORY'       , 'category' );
@@ -94,6 +93,7 @@ define( 'WOM_PARSER_ID_TABLECELL'      , 'tbl_cell' );
 define( 'WOM_PARSER_ID_MAGICWORD'      , 'magicword' );
 define( 'WOM_PARSER_ID_HTMLTAG'        , 'html' );
 define( 'WOM_PARSER_ID_TEMPLATE_FIELD_HOLDER', 'template_field_holder' );
+define( 'WOM_PARSER_ID_REDIRECT'       , 'redirect' );
 
 global $wgOMParsers, $wgOMModelParserMapping;
 $wgOMParsers = array(
@@ -113,29 +113,21 @@ $wgOMParsers = array(
 		'WOMMagicWordParser',
 		'WOMHTMLTagParser',
 		'WOMTemplateFieldHolderParser',
+		'WOMRedirectParser',
 );
 
-$wgOMModelParserMapping = array(
-	WOM_TYPE_TEXT           => WOM_PARSER_ID_TEXT,
-	WOM_TYPE_CATEGORY       => WOM_PARSER_ID_CATEGORY,
-	WOM_TYPE_SECTION        => WOM_PARSER_ID_SECTION,
-	WOM_TYPE_PROPERTY       => WOM_PARSER_ID_PROPERTY,
-	WOM_TYPE_NESTPROPERTY   => WOM_PARSER_ID_PROPERTY,
-	WOM_TYPE_NESTPROPERTYVAL => WOM_PARSER_ID_PROPERTY_VALUE,
-	WOM_TYPE_LINK           => WOM_PARSER_ID_LINK,
-	WOM_TYPE_TEMPLATE       => WOM_PARSER_ID_TEMPLATE,
-	WOM_TYPE_PARSERFUNCTION => WOM_PARSER_ID_PARSERFUNCTION,
-	WOM_TYPE_PARAMETER      => WOM_PARSER_ID_PARAMETER,
-	WOM_TYPE_TMPL_FIELD     => WOM_PARSER_ID_PARAMETER,
-	WOM_TYPE_QUERYSTRING    => WOM_PARSER_ID_PARAMETER,
-	WOM_TYPE_QUERYPRINTOUT  => WOM_PARSER_ID_PARAMETER,
-	WOM_TYPE_PARAM_VALUE    => WOM_PARSER_ID_PARAM_VALUE,
-	WOM_TYPE_LISTITEM       => WOM_PARSER_ID_LISTITEM,
-	WOM_TYPE_TABLE          => WOM_PARSER_ID_TABLE,
-	WOM_TYPE_TBL_CELL       => WOM_PARSER_ID_TABLECELL,
-	WOM_TYPE_MAGICWORD      => WOM_PARSER_ID_MAGICWORD,
-	WOM_TYPE_HTMLTAG        => WOM_PARSER_ID_HTMLTAG,
-	WOM_TYPE_TMPL_FIELD_HOLDER => WOM_PARSER_ID_TEMPLATE_FIELD_HOLDER,
+// Parser function parameter
+$wgAutoloadClasses['WOMQuerystringModel']      =  $wgOMIP . '/includes/models/WOM_OM_Querystring.php';
+$wgAutoloadClasses['WOMQueryPrintoutModel']    =  $wgOMIP . '/includes/models/WOM_OM_QueryPrintout.php';
+define( 'WOM_TYPE_QUERYSTRING'    , 'querystring' );
+define( 'WOM_TYPE_QUERYPRINTOUT'  , 'printout' );
+
+$wgAutoloadClasses['WOMParserFunctionParameterParser']     =  $wgOMIP . '/includes/parsers/WOMParserFunctionParameterParser.php';
+
+$wgAutoloadClasses['WOMAskParser']        =  $wgOMIP . '/includes/parsers/WOMAskParser.php';
+define( 'WOM_PFPARSER_ID_ASK'       , 'ask' );
+$wgOMPFParsers = array(
+	'WOMAskParser',
 );
 
 global $wgOMSentenceObjectTypes;
@@ -164,4 +156,5 @@ $wgAPIModules['womquery'] = 'ApiWOMQuery';
 $wgAutoloadClasses['ApiWOMQuery'] = $wgOMIP . '/includes/apis/WOM_Query.php';
 $wgAPIModules['womoutput'] = 'ApiWOMOutputObjectModel';
 $wgAutoloadClasses['ApiWOMOutputObjectModel'] = $wgOMIP . '/includes/apis/WOM_OutputObjectModel.php';
-
+$wgAPIModules['womwiki'] = 'ApiWOMGetWikiResult';
+$wgAutoloadClasses['ApiWOMGetWikiResult'] = $wgOMIP . '/includes/apis/WOM_GetWikiResult.php';

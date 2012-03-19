@@ -13,6 +13,10 @@ class WOMCategoryParser extends WOMLinkParser {
 		$this->m_parserId = WOM_PARSER_ID_CATEGORY;
 	}
 
+	public function getValidModelTypes() {
+		return array( WOM_TYPE_CATEGORY );
+	}
+
 	public function parseNext( $text, WikiObjectModelCollection $parentObj, $offset = 0 ) {
 		$text = substr( $text, $offset );
 		global $wgContLang;

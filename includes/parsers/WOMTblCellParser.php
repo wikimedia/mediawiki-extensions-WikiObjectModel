@@ -13,6 +13,10 @@ class WOMTableCellParser extends WikiObjectModelParser {
 		$this->m_parserId = WOM_PARSER_ID_TABLECELL;
 	}
 
+	public function getValidModelTypes() {
+		return array( WOM_TYPE_TBL_CELL );
+	}
+
 	private function getFirstLineChar( $text, $offset ) {
 		for ( $i = $offset; $i >= 0; --$i ) {
 			if ( $text { $i } == "\n" ) {

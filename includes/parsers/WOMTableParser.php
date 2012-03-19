@@ -13,6 +13,10 @@ class WOMTableParser extends WikiObjectModelParser {
 		$this->m_parserId = WOM_PARSER_ID_TABLE;
 	}
 
+	public function getValidModelTypes() {
+		return array( WOM_TYPE_TABLE );
+	}
+
 	// FIXME: what if table style uses parser function which contains 'return'
 	public function parseNext( $text, WikiObjectModelCollection $parentObj, $offset = 0 ) {
 		$text = substr( $text, $offset );

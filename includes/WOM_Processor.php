@@ -14,6 +14,9 @@ class WOMProcessor {
 	private static $isParsersRegistered = false;
 	private static $parsers = array();
 	private static $base_parser;
+	private static $modelParserMapping = array();
+
+	public static $parserFuncParsers = array();
 
 	private static function setupParsers() {
 		if ( self::$isParsersRegistered ) return;
@@ -22,8 +25,32 @@ class WOMProcessor {
 		foreach ( $wgOMParsers as $p ) {
 			$parser = new $p();
 			self::$parsers[$parser->getParserID()] = $parser;
+			foreach ( $parser->getValidModelTypes() as $type ) {
+				self::$modelParserMapping[$type] = $parser->getParserID();
+			}
 		}
 		self::$base_parser = self::$parsers[WOM_PARSER_ID_TEXT];
+
+		$parsers = array();
+		if ( wfRunHooks ( 'womRegisterParsers', array ( &$parsers ) ) ) {
+			foreach ( $parsers as $p ) {
+				$parser = new $p();
+				self::$parsers[$parser->getParserID()] = $parser;
+				foreach ( $parser->getValidModelTypes() as $type ) {
+					self::$modelParserMapping[$type] = $parser->getParserID();
+				}
+			}
+		}
+		$parsers = array();
+		if ( wfRunHooks ( 'womRegisterParserFunctionParsers', array ( &$parsers ) ) ) {
+			foreach ( $parsers as $p ) {
+				$parser = new $p();
+				self::$parserFuncParsers[$parser->getParserID()] = $parser;
+				foreach ( $parser->getValidModelTypes() as $type ) {
+					self::$modelParserMapping[$type] = WOM_PARSER_ID_PARAMETER;
+				}
+			}
+		}
 
 		self::$isParsersRegistered = true;
 	}
@@ -35,9 +62,8 @@ class WOMProcessor {
 		if ( !self::$isParsersRegistered ) {
 			self::setupParsers();
 		}
-		global $wgOMModelParserMapping;
-		if ( isset( $wgOMModelParserMapping[$obj->getTypeID()] ) ) {
-			$id = $wgOMModelParserMapping[$obj->getTypeID()];
+		if ( isset( self::$modelParserMapping[$obj->getTypeID()] ) ) {
+			$id = self::$modelParserMapping[$obj->getTypeID()];
 			if ( isset( self::$parsers[$id] ) ) {
 				wfProfileOut( $fname );
 				return self::$parsers[$id];
@@ -119,7 +145,10 @@ class WOMProcessor {
 				if ( $obj->getTypeID() == WOM_TYPE_HTMLTAG ) {
 					// special case, html tag
 				} elseif ( $obj instanceof WikiObjectModelCollection ) {
-					self::parseParagraphs( $obj );
+					// FIXME: hardcode, for querystring object
+					if ( $obj->getTypeID() != WOM_TYPE_QUERYSTRING ) {
+						self::parseParagraphs( $obj );
+					}
 				}
 				$new_objs[] = $obj;
 			}
@@ -180,7 +209,10 @@ class WOMProcessor {
 				if ( $obj->getTypeID() == WOM_TYPE_HTMLTAG ) {
 					// special case, html tag
 				} elseif ( $obj instanceof WikiObjectModelCollection ) {
-					self::parseSentences( $obj );
+					// FIXME: hardcode, for querystring object
+					if ( $obj->getTypeID() != WOM_TYPE_QUERYSTRING ) {
+						self::parseSentences( $obj );
+					}
 				}
 				$new_objs[] = $obj;
 			}
@@ -230,7 +262,9 @@ class WOMProcessor {
 				foreach ( self::$parsers as $parser ) {
 					$parser_res = $parser->parseNext( $text, $parentObj, $offset );
 					if ( $parser_res == null ) continue;
-					if ( $parserInstance == null || $parser->subclassOf( $parserInstance ) ) {
+					if ( ( $parserInstance == null || $parser->subclassOf( $parserInstance ) ) ||
+						( $result != null && $parser_res['len'] > $result['len'] ) ) {
+
 						$parserInstance = $parser;
 						$result = $parser_res;
 					}

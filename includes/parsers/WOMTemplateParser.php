@@ -13,6 +13,10 @@ class WOMTemplateParser extends WikiObjectModelParser {
 		$this->m_parserId = WOM_PARSER_ID_TEMPLATE;
 	}
 
+	public function getValidModelTypes() {
+		return array( WOM_TYPE_TEMPLATE );
+	}
+
 	public function parseNext( $text, WikiObjectModelCollection $parentObj, $offset = 0 ) {
 		$text = substr( $text, $offset );
 		$r = preg_match( '/^(\{\{([^{|}]+))([|}])/', $text, $m );

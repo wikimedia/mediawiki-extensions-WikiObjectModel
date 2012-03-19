@@ -13,28 +13,8 @@ class WOMParameterParser extends WikiObjectModelParser {
 		$this->m_parserId = WOM_PARSER_ID_PARAMETER;
 	}
 
-	private function parseAsk ( $text, WikiObjectModelCollection $parentObj ) {
-		if ( !defined( 'SMW_VERSION' ) ) return null;
-
-		if ( trim( strtolower( $parentObj->getFunctionKey() ) ) != 'ask' ) return null;
-
-		if ( count ( $parentObj->getObjects() ) == 0 ) {
-			return array( 'len' => 0, 'obj' => new WOMQuerystringModel() );
-		}
-
-		if ( defined( 'SMW_AGGREGATION_VERSION' ) ) {
-			$r = preg_match( '/^(\s*\?([^>=|}]+)(?:\>([^=|}]*))?(?:=([^|}]*))?)(\||\}|$)/', $text, $m );
-			if ( !$r ) return null;
-			return array(
-				'len' => strlen( $m[5] == '|' ? $m[0] : $m[1] ),
-				'obj' => new WOMQueryPrintoutModel( trim( $m[2] ), trim( $m[4] ), trim( $m[3] ) ) );
-		} else {
-			$r = preg_match( '/^(\s*\?([^=|}]+)(?:=([^|}]*))?)(\||\}|$)/', $text, $m );
-			if ( !$r ) return null;
-			return array(
-				'len' => strlen( $m[4] == '|' ? $m[0] : $m[1] ),
-				'obj' => new WOMQueryPrintoutModel( trim( $m[2] ), trim( $m[3] ) ) );
-		}
+	public function getValidModelTypes() {
+		return array( WOM_TYPE_PARAMETER, WOM_TYPE_TMPL_FIELD );
 	}
 
 	public function parseNext( $text, WikiObjectModelCollection $parentObj, $offset = 0 ) {
@@ -44,8 +24,12 @@ class WOMParameterParser extends WikiObjectModelParser {
 
 		$text = substr( $text, $offset );
 
-		$ret = $this->parseAsk ( $text, $parentObj );
-		if ( $ret != null ) return $ret;
+		if ( $parentObj instanceof WOMParserFunctionModel ) {
+			foreach ( WOMProcessor::$parserFuncParsers as $p ) {
+				$ret = $p->parseParserFunctionParameter ( $text, $parentObj );
+				if ( $ret != null ) return $ret;
+			}
+		}
 
 		$r = preg_match( '/^([^=|}]*)(\||=|\}|$)/', $text, $m );
 		if ( !$r ) return null;
@@ -67,18 +51,26 @@ class WOMParameterParser extends WikiObjectModelParser {
 	}
 
 	public function getSubParserID( $obj ) {
-		if ( ( $obj instanceof WOMQuerystringModel )
-			|| ( $obj instanceof WOMQueryPrintoutModel ) )
-				return '';
+		foreach ( WOMProcessor::$parserFuncParsers as $p ) {
+			$ret = $p->getSubParserID ( $obj );
+			if ( $ret !== null ) return $ret;
+		}
 
 		return WOM_PARSER_ID_PARAM_VALUE;
 	}
 
 	public function isObjectClosed( $obj, $text, $offset ) {
-		if ( !( ( $obj instanceof WOMTemplateFieldModel )
-			|| ( $obj instanceof WOMParameterModel )
-			|| ( $obj instanceof WOMQuerystringModel )
-			|| ( $obj instanceof WOMQueryPrintoutModel ) ) )
+		$valid = false;
+		foreach ( WOMProcessor::$parserFuncParsers as $p ) {
+			if ( $p->validate ( $obj ) ) {
+				$valid = true;
+				break;
+			}
+		}
+
+		if ( !( $valid ||
+			( $obj instanceof WOMTemplateFieldModel ) ||
+			( $obj instanceof WOMParameterModel ) ) )
 				return false;
 
 		if ( ( strlen( $text ) >= $offset + 1 ) && $text { $offset } == '|' ) {
@@ -86,7 +78,10 @@ class WOMParameterParser extends WikiObjectModelParser {
 		}
 		$parentClose = WOMProcessor::getObjectParser( $obj->getParent() )
 			->isObjectClosed( $obj->getParent(), $text, $offset );
-		if ( $parentClose !== false ) return 0;
+		if ( $parentClose !== false ) {
+			$obj->setPipe( false );
+			return 0;
+		}
 
 		return false;
 	}

@@ -13,6 +13,10 @@ class WOMParamValueParser extends WikiObjectModelParser {
 		$this->m_parserId = WOM_PARSER_ID_PARAM_VALUE;
 	}
 
+	public function getValidModelTypes() {
+		return array( WOM_TYPE_PARAM_VALUE );
+	}
+
 	public function parseNext( $text, WikiObjectModelCollection $parentObj, $offset = 0 ) {
 		if ( !( ( $parentObj instanceof WOMParameterModel )
 			|| ( $parentObj instanceof WOMTemplateFieldHolderModel ) ) )

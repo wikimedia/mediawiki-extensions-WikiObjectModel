@@ -13,6 +13,10 @@ class WOMTemplateFieldHolderParser extends WikiObjectModelParser {
 		$this->m_parserId = WOM_PARSER_ID_TEMPLATE_FIELD_HOLDER;
 	}
 
+	public function getValidModelTypes() {
+		return array( WOM_TYPE_TMPL_FIELD_HOLDER );
+	}
+
 	public function parseNext( $text, WikiObjectModelCollection $parentObj, $offset = 0 ) {
 		$text = substr( $text, $offset );
 		$r = preg_match( '/^(\{\{\{([^{|}]+))([|}])/', $text, $m );

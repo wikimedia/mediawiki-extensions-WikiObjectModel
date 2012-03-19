@@ -53,6 +53,10 @@ class WikiObjectModelParser {
 		return array( 'len' => 1, 'obj' => new WOMTextModel( $text { 0 } ) );
 	}
 
+	public function getValidModelTypes() {
+		return array( WOM_TYPE_TEXT );
+	}
+
 	// E.g.,
 	// semantic property is extended from internal links
 	// parser functions is extended from templates

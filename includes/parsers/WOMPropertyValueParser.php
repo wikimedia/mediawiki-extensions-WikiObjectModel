@@ -13,6 +13,10 @@ class WOMPropertyValueParser extends WikiObjectModelParser {
 		$this->m_parserId = WOM_PARSER_ID_PROPERTY_VALUE;
 	}
 
+	public function getValidModelTypes() {
+		return array( WOM_TYPE_NESTPROPERTYVAL );
+	}
+
 	public function parseNext( $text, WikiObjectModelCollection $parentObj, $offset = 0 ) {
 		if ( !( $parentObj instanceof WOMNestPropertyModel ) )
 			return null;

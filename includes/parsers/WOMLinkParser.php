@@ -13,6 +13,10 @@ class WOMLinkParser extends WikiObjectModelParser {
 		$this->m_parserId = WOM_PARSER_ID_LINK;
 	}
 
+	public function getValidModelTypes() {
+		return array( WOM_TYPE_LINK );
+	}
+
 	public function parseNext( $text, WikiObjectModelCollection $parentObj, $offset = 0 ) {
 		$text = substr( $text, $offset );
 

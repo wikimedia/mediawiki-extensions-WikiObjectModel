@@ -282,7 +282,10 @@ class WOMOutputProcessor {
 			foreach ( $queries as $label => $vals ) {
 				$vals = array_unique( $vals );
 				foreach ( $vals as $val ) {
-					$query_res->insertObject( new WOMPropertyModel( $label, $val ) );
+					$qprop = new WOMPropertyModel( $label, $val );
+					$qprop->setObjectID( 'output' . ( $tmp_id ++ ) );
+					$query_res->insertObject( $qprop );
+					$wom->addToPageObjectSet( $qprop );
 				}
 			}
 		}
@@ -310,6 +313,8 @@ class WOMOutputProcessor {
 			}
 		}
 
+		if ( wfRunHooks ( 'womGetExtraOutputObjects', array ( $wgTitle, &$wom ) ) ) {
+		}
 		return $wom;
 	}
 }

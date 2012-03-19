@@ -15,6 +15,10 @@ class WOMSectionParser extends WikiObjectModelParser {
 		$this->m_parserId = WOM_PARSER_ID_SECTION;
 	}
 
+	public function getValidModelTypes() {
+		return array( WOM_TYPE_SECTION );
+	}
+
 	public function parseNext( $text, WikiObjectModelCollection $parentObj, $offset = 0 ) {
 		$lastLF = ( $offset == 0 || $text { $offset - 1 } == "\n" );
 		$text = substr( $text, $offset );

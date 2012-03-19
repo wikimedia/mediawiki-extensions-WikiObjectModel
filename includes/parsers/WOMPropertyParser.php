@@ -14,6 +14,10 @@ class WOMPropertyParser extends WOMLinkParser {
 		$this->m_parserId = WOM_PARSER_ID_PROPERTY;
 	}
 
+	public function getValidModelTypes() {
+		return array( WOM_TYPE_PROPERTY, WOM_TYPE_NESTPROPERTY );
+	}
+
 	public function parseNext( $text, WikiObjectModelCollection $parentObj, $offset = 0 ) {
 		if ( !defined( 'SMW_VERSION' ) ) {
 			return null;
@@ -21,6 +25,26 @@ class WOMPropertyParser extends WOMLinkParser {
 
 		$text = substr( $text, $offset );
 
+		global $smwgRecursivePropertyValues;
+
+		$inQuerystring = false;
+		$o = $parentObj;
+		do {
+			if ( $o instanceof WOMQuerystringModel ) {
+				$inQuerystring = true;
+				break;
+			}
+			$o = $o->getParent();
+		} while ( $o != null );
+
+		if ( $inQuerystring || $smwgRecursivePropertyValues ) {
+			$semanticPropPattern = '/^\[\[                 # Beginning of the link
+			                        (?:([^:][^][]*?):[=:]) # Property name (or a list of those)
+			                        /xu';
+			if ( !preg_match( $semanticPropPattern, $text, $m ) ) return null;
+
+			return array( 'len' => strlen( $m[0] ), 'obj' => new WOMNestPropertyModel( $m[1] ) );
+		}
 		// copied from SemanticMediaWiki, includes/SMW_ParserExtensions.php
 		// not deal with <nowiki>, could be bug here. SMW has the same bug
 		// E.g., [[text::this <nowiki> is ]] </nowiki> not good]]
@@ -45,24 +69,6 @@ class WOMPropertyParser extends WOMLinkParser {
 //		}
 		$r = preg_match( $semanticLinkPattern, $text, $m );
 		if ( $r ) {
-			$inQuerystring = false;
-			$o = $parentObj;
-			do {
-				if ( $o instanceof WOMQuerystringModel ) {
-					$inQuerystring = true;
-					break;
-				}
-				$o = $o->getParent();
-			} while ( $o != null );
-
-			if ( $inQuerystring ) {
-				$semanticPropPattern = '/\[\[                 # Beginning of the link
-				                        (?:([^:][^][]*):[=:])+ # Property name (or a list of those)
-				                        /xu';
-				preg_match( $semanticPropPattern, $text, $m );
-				return array( 'len' => strlen( $m[0] ), 'obj' => new WOMNestPropertyModel( $m[1] ) );
-			}
-
 			return array( 'len' => strlen( $m[0] ), 'obj' => new WOMPropertyModel( $m[1], $m[2], isset( $m[3] ) ? $m[3] : '' ) );
 		}
 		return null;
