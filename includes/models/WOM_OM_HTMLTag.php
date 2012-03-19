@@ -22,7 +22,7 @@ class WOMHTMLTagModel extends WikiObjectModelCollection {
 		return $this->m_name;
 	}
 
-	public function setTagName( $name ) {
+	public function setName( $name ) {
 		$this->m_name = $name;
 	}
 
