@@ -48,9 +48,33 @@ class WOMNestPropertyModel extends WikiObjectModelCollection {
 	}
 
 	public function getValueText() {
-		return parent::getWikiText();
+		$text = array();
+		foreach ( $this->m_objects as $obj ) {
+			$text[] = $obj->getWikiText();
+		}
+		return implode( '|', $text );
 	}
+	
+	public function getPropertyValue() {
+		if ( count ( $this->m_objects ) > 0 )
+			return $this->m_objects[0]->getWikiText();
 
+		return '';
+	}
+	
+	public function getCaption() {
+		$text = array();
+		$first = true;
+		foreach ( $this->m_objects as $obj ) {
+			if ( $first ) {
+				$first = false;
+				continue;
+			}
+			$text[] = $obj->getWikiText();
+		}
+		return implode( '|', $text );
+	}
+	
 	public function setXMLAttribute( $key, $value ) {
 		if ( $value == '' ) throw new MWException( __METHOD__ . ": value cannot be empty" );
 
