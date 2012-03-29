@@ -22,6 +22,9 @@ class WOMLinkModel extends WikiObjectModel {
 		if ( preg_match( '/^(?:' . wfUrlProtocols() . ')[^][<>"\\x00-\\x20\\x7F]+/', $this->m_link ) )
 			return false;
 
+		if ( preg_match( '/^\{\{fullurl:/i', $this->m_link ) )
+			return false;
+
 		return true;
 	}
 	public function getLink() {

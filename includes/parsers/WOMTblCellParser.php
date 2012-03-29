@@ -48,7 +48,7 @@ class WOMTableCellParser extends WikiObjectModelParser {
 
 		$len = strlen( $m[0] );
 		$text = substr( $text, $len );
-		$r = preg_match( '/^([^\n|]*\|)[^|]/', $text, $m1 );
+		$r = preg_match( '/^([^<\n|]*\|)[^|]/', $text, $m1 );
 		if ( !$r || preg_match( '/\{\{/', $m1[1] ) ) {
 			// FIXME: what if matched style contains '{{', just think it is table body
 			return array( 'len' => $len, 'obj' => new WOMTableCellModel( $m[0] ) );

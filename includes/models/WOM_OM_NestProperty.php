@@ -54,14 +54,14 @@ class WOMNestPropertyModel extends WikiObjectModelCollection {
 		}
 		return implode( '|', $text );
 	}
-	
+
 	public function getPropertyValue() {
 		if ( count ( $this->m_objects ) > 0 )
 			return $this->m_objects[0]->getWikiText();
 
 		return '';
 	}
-	
+
 	public function getCaption() {
 		$text = array();
 		$first = true;
@@ -74,7 +74,7 @@ class WOMNestPropertyModel extends WikiObjectModelCollection {
 		}
 		return implode( '|', $text );
 	}
-	
+
 	public function setXMLAttribute( $key, $value ) {
 		if ( $value == '' ) throw new MWException( __METHOD__ . ": value cannot be empty" );
 

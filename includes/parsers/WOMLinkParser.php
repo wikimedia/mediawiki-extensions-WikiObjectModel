@@ -28,6 +28,11 @@ class WOMLinkParser extends WikiObjectModelParser {
 		if ( $r ) {
 			return array( 'len' => strlen( $m[0] ), 'obj' => new WOMLinkModel( $m[1], isset( $m[3] ) ? $m[3] : '' ) );
 		}
+		// FIXME: hardcode here, for fullurl magic word
+		$r = preg_match( '/^\[(\{\{fullurl:[^}]+\}\})(\s+([^\]]+))?\]/i', $text, $m );
+		if ( $r ) {
+			return array( 'len' => strlen( $m[0] ), 'obj' => new WOMLinkModel( $m[1], isset( $m[3] ) ? $m[3] : '' ) );
+		}
 		// includes/Parser.php Parser->doMagicLinks
 		$r = preg_match( '/^(?:' . wfUrlProtocols() . ')[^][<>"|}{\\x00-\\x20\\x7F]+/', $text, $m );
 		if ( $r ) {
