@@ -102,7 +102,7 @@ class ApiWOMGetWikiResult extends ApiBase {
 		$types = defined( 'SMW_VERSION' ) ? array(
 				'Type to fetch wiki parse result',
 				'type = wiki, get parser result of wiki text',
-				'type = ask, get parser result of ask query, in xml format'
+				'type = ask, get parser result of ask query'
 			) : array(
 				'Type to fetch wiki parse result',
 				'type = wiki, get parser result of wiki text',
