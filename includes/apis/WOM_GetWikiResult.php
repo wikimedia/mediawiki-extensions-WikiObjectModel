@@ -18,18 +18,25 @@ class ApiWOMGetWikiResult extends ApiBase {
 		$wiki = $params['wiki'];
 		$type = $params['type'];
 
+		$result = array(
+			'wiki' => array(),
+			'message' => array(),
+			'return' => array(),
+		);
+		$this->getResult()->setContent( $result['wiki'], $wiki );
+
 		global $wgParser;
 		$popt = new ParserOptions();
 		$popt->setEditSection( false );
 		$title = Title::newFromText( '__TEMPWIKITITLE__' );
 		if ( strtolower( $type ) == 'ask' ) {
-			$wiki = "{$wiki}|format=xml";
+			$_wiki = "{$wiki}|format=xml";
 
 			global $wgOMIP, $smwgResultFormats, $wgAutoloadClasses;
 			$smwgResultFormats['xml'] = 'SRFXml';
 			$wgAutoloadClasses['SRFXml'] = $wgOMIP . '/includes/apis/SRF_Xml.php';
 
-			$s = $wgParser->preprocess( $wiki, $title, $popt );
+			$s = $wgParser->preprocess( $_wiki, $title, $popt );
 			$b = 0;
 			for ( $i = 0; $i < strlen( $s ); ++$i ) {
 				if ( $s { $i } == '[' ) {
@@ -42,22 +49,42 @@ class ApiWOMGetWikiResult extends ApiBase {
 			}
 			$rawparams = array( substr( $s, 0, $i ) );
 			if ( $i < strlen( $s ) ) $rawparams = array_merge( $rawparams, explode( '|', substr( $s, $i + 1 ) ) );
-			$result = SMWQueryProcessor::getResultFromFunctionParams( $rawparams, SMW_OUTPUT_WIKI );
+			$xml = SMWQueryProcessor::getResultFromFunctionParams( $rawparams, SMW_OUTPUT_WIKI );
+
+			$xObj = simplexml_load_string( $xml );
+			try {
+				$rows = array();
+				foreach ( $xObj->xpath( '/res/row' ) as $objs ) {
+					$row = array();
+					foreach ( $objs as $label => $vals ) {
+						$vs = array();
+						foreach ( $vals as $v ) {
+							$vs[] = strval( $v );
+						}
+	            		$this->getResult()->setIndexedTagName( $vs, 'value' );
+						$row[$label] = $vs;
+					}
+//					$this->getResult()->setIndexedTagName($rows, 'list-item');
+					$rows[] = $row;
+				}
+	            $this->getResult()->setIndexedTagName( $rows, 'item' );
+	            $result['return'] = $rows;
+//	            $this->getResult()->addValue(array($this->getModuleName(), 'result'), 'items', $rows);
+			} catch ( Exception $e ) {
+				$err = $e->getMessage();
+			}
 		} else {
 			$pout = $wgParser->parse( $wiki, $title, $popt );
-			$result = "<![CDATA[{$pout->getText()}]]>";
+			$this->getResult()->setContent( $result['return'], $pout->getText() );
 		}
-
-		header ( "Content-Type: application/rdf+xml" );
-		echo <<<OUTPUT
-<?xml version="1.0" encoding="UTF-8" ?>
-<api><womwiki result="Success">
-<wiki><![CDATA[{$wiki}]]></wiki>
-<return>
-{$result}
-</return></womwiki></api>
-OUTPUT;
-		exit( 1 );
+		if ( isset( $err ) ) {
+			$result['result'] = 'Failure';
+			$this->getResult()->setContent( $result['message'], $err );
+		} else {
+			$result['result'] = 'Success';
+			$this->getResult()->setContent( $result['message'], 'no error' );
+		}
+		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
 	protected function getAllowedParams() {

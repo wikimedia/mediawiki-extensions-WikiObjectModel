@@ -11,29 +11,35 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class SRFXml extends SMWResultPrinter {
 	protected function getResultText( $res, $outputmode ) {
-		$xml = '';
-		if ( $this->mShowHeaders != SMW_HEADERS_HIDE ) {
-			$xml .= '<head>' . "\n";
-			foreach ( $res->getPrintRequests() as $pr ) {
-				$xml .= "<item>{$pr->getText( $outputmode, null )}</item>\n";
+		$heads = array();
+		$first = true;
+		foreach ( $res->getPrintRequests() as $pr ) {
+			$head = $pr->getText( $outputmode, null );
+			if ( $first ) {
+				if ( !$head ) $head = 'mainlabel';
+				$first = false;
 			}
-			$xml .= '</head>' . "\n";
+
+			$heads[] = str_replace( ' ', '_', str_replace( '/', '_', $head ) );
 		}
 
-		$xml .= '<res>' . "\n";
+		$xml = '<res>' . "\n";
 		// print all result rows
 		while ( $row = $res->getNext() ) {
 			$xml .= '<row>' . "\n";
 			$firstcol = true;
+			$idx = 0;
 			foreach ( $row as $field ) {
-				$xml .= '<item>' . "\n";
-				$growing = array();
+				$xml .= "<{$heads[$idx]}>\n";
+//				$growing = array();
 				while ( ( $object = $field->getNextObject() ) !== false ) {
 					$text = Sanitizer::decodeCharReferences( $object->getWikiValue() );
-					$growing[] = $text;
+					$xml .= "<val>{$text}</val>";
+//					$growing[] = $text;
 				} // while...
-				$xml .= implode( ',', $growing );
-				$xml .= '</item>' . "\n";
+//				$xml .= implode( ',', $growing );
+				$xml .= "</{$heads[$idx]}>\n";
+				++ $idx;
 			} // foreach...
 			$xml .= '</row>' . "\n";
 		}
