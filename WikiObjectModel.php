@@ -46,7 +46,7 @@ function wfWOMInitLanguage() {
 
 function wfWOMRegisterParserFunctionParsers( &$parsers ) {
 	global $wgOMPFParsers;
-	$parsers += $wgOMPFParsers;
+	$parsers = array_merge( $parsers, $wgOMPFParsers );
 	return true;
 }
 
