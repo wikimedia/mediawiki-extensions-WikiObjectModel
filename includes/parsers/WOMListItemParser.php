@@ -41,7 +41,10 @@ class WOMListItemParser extends WikiObjectModelParser {
 		if ( ( $offset >= $len ) || ( ( $len >= $offset + 1 ) && $text { $offset } == "\n" ) ) {
 			return 0;
 		}
-
+		$parentClose = WOMProcessor::getObjectParser( $obj->getParent() )
+			->isObjectClosed( $obj->getParent(), $text, $offset );
+		if ( $parentClose !== false ) return 0;
+		
 		return false;
 	}
 }
