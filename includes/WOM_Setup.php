@@ -145,16 +145,3 @@ $wgOMParagraphObjectTypes = $wgOMSentenceObjectTypes;
 $wgOMParagraphObjectTypes[] = WOM_TYPE_LISTITEM;
 $wgOMParagraphObjectTypes[] = WOM_TYPE_PARSERFUNCTION;
 $wgOMParagraphObjectTypes[] = WOM_TYPE_TEMPLATE;
-
-// APIs
-global $wgAPIModules;
-$wgAPIModules['womset'] = 'ApiWOMSetObjectModel';
-$wgAutoloadClasses['ApiWOMSetObjectModel'] = $wgOMIP . '/includes/apis/WOM_SetObjectModel.php';
-$wgAPIModules['womget'] = 'ApiWOMGetObjectModel';
-$wgAutoloadClasses['ApiWOMGetObjectModel'] = $wgOMIP . '/includes/apis/WOM_GetObjectModel.php';
-$wgAPIModules['womquery'] = 'ApiWOMQuery';
-$wgAutoloadClasses['ApiWOMQuery'] = $wgOMIP . '/includes/apis/WOM_Query.php';
-$wgAPIModules['womoutput'] = 'ApiWOMOutputObjectModel';
-$wgAutoloadClasses['ApiWOMOutputObjectModel'] = $wgOMIP . '/includes/apis/WOM_OutputObjectModel.php';
-$wgAPIModules['womwiki'] = 'ApiWOMGetWikiResult';
-$wgAutoloadClasses['ApiWOMGetWikiResult'] = $wgOMIP . '/includes/apis/WOM_GetWikiResult.php';

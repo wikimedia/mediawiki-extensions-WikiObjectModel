@@ -52,10 +52,6 @@ class WOMHTMLTagModel extends WikiObjectModelCollection {
 		return "<{$this->m_name}{$attr}>" . parent::getWikiText() . "</{$this->m_name}>";
 	}
 
-	public function getInnerWikiText() {
-		return parent::getWikiText();
-	}
-
 	public function updateOnNodeClosed() {
 		// use SemanticForms to bind properties to fields
 	}

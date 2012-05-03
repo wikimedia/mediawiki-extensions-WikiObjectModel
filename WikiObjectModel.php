@@ -57,6 +57,23 @@ function wfWOMSetupExtension() {
 
 	$wgHooks['womRegisterParserFunctionParsers'][] = 'wfWOMRegisterParserFunctionParsers';
 
+	// APIs
+	global $wgAPIModules, $wgAutoloadClasses, $wgOMIP;
+	$wgAPIModules['womset'] = 'ApiWOMSetObjectModel';
+	$wgAutoloadClasses['ApiWOMSetObjectModel'] = $wgOMIP . '/includes/apis/WOM_SetObjectModel.php';
+	$wgAPIModules['womget'] = 'ApiWOMGetObjectModel';
+	$wgAutoloadClasses['ApiWOMGetObjectModel'] = $wgOMIP . '/includes/apis/WOM_GetObjectModel.php';
+	$wgAPIModules['womapi'] = 'ApiWOMWikiObjectApi';
+	$wgAutoloadClasses['ApiWOMWikiObjectApi'] = $wgOMIP . '/includes/apis/WOM_WikiObjectApi.php';
+
+	$wgAPIModules['womoutput'] = 'ApiWOMOutputObjectModel';
+	$wgAutoloadClasses['ApiWOMOutputObjectModel'] = $wgOMIP . '/includes/apis/WOM_OutputObjectModel.php';
+	$wgAPIModules['womwiki'] = 'ApiWOMGetWikiResult';
+	$wgAutoloadClasses['ApiWOMGetWikiResult'] = $wgOMIP . '/includes/apis/WOM_GetWikiResult.php';
+
+	$wgAPIModules['womquery'] = 'ApiWOMQuery';
+	$wgAutoloadClasses['ApiWOMQuery'] = $wgOMIP . '/includes/apis/WOM_Query.php';
+
 	$wgExtensionCredits['parserhook'][] = array(
 		'path' => __FILE__,
 		'name' => 'Wiki ObjectModel Extension',

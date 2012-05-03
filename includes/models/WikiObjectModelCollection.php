@@ -31,12 +31,16 @@ abstract class WikiObjectModelCollection extends WikiObjectModel {
 		return null;
 	}
 
-	public function getWikiText() {
+	public function getInnerWikiText() {
 		$text = '';
 		foreach ( $this->m_objects as $obj ) {
 			$text .= $obj->getWikiText();
 		}
 		return $text;
+	}
+
+	public function getWikiText() {
+		return $this->getInnerWikiText();
 	}
 
 	/**
