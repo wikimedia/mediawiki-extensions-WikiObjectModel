@@ -60,7 +60,10 @@ class ApiWOMWikiObjectApi extends ApiBase {
 							foreach ( $os as $o ) $val .= strval( $o );
 						}
 					}
-					$wommaps[$idx]['value'] .= $val . ( $map['setting']['delimiter'] ? $map['setting']['delimiter']:'' );
+					$wommaps[$idx]['value'] .=
+						( $map['setting']['prefix'] ? $map['setting']['prefix']:'' ) .
+						$val .
+						( $map['setting']['delimiter'] ? $map['setting']['delimiter']:'' );
 				}
 				if ( $first ) $first = false;
 			}
@@ -93,19 +96,26 @@ class ApiWOMWikiObjectApi extends ApiBase {
 		$wommaps = array();
 		foreach ( explode( '|', str_replace( '||', '___PIPEPLACEHOLDER__', $mapinfo ) ) as $map ) {
 			$s = explode( '=', str_replace( '___PIPEPLACEHOLDER__', '|', $map ), 2 );
-			$set = explode( ',', $s[1], 2 );
-			$len = strlen( $set[1] );
 			$settings = array();
-			for ( $i = 0; $i < $len; ++$i ) {
-				if ( strtolower( $set[1] { $i } ) == 'm' ) {
+			$first = true;
+			$param = '';
+			foreach ( explode( ',', str_replace( ',,', '___DELIMITERPLACEHOLDER__', $s[1] ) ) as $set ) {
+				$set = str_replace( '___DELIMITERPLACEHOLDER__', '|', $set );
+				if ( $first ) {
+					$param = $set;
+					$first = false;
+					continue;
+				}
+				if ( strtolower( $set { 0 } ) == 'm' ) {
 					$settings['multiple'] = true;
-					++$i;
-					$settings['delimiter'] = $set[1] { $i } ;
+					$settings['delimiter'] = substr( $set, 1 );
+				} elseif ( strtolower( $set { 0 } ) == 'p' ) {
+					$settings['prefix'] = substr( $set, 1 );
 				}
 			}
 			$wommaps[] = array(
 				'xpath' => $s[0],
-				'param' => $set[0],
+				'param' => $param,
 				'setting' => $settings,
 				'value' => ''
 			);
@@ -164,12 +174,14 @@ class ApiWOMWikiObjectApi extends ApiBase {
 				'Settings to map WOM result on parameter(s) of api actions',
 				'"|" as delimiter, to separate map items',
 				'format: xpath of values=api parameter name,other settings',
-				'    for "|" inside map item, use double "||"',
+				'    for "|" inside map item, use "||" to escape',
+				'    for "," inside map item, use ",," to escape',
 				'  xpath:',
 				'    "@property" as property name,',
 				'    "innerwiki" as wiki text inside xml object',
 				'  settings:',
-				'    "m<delimiter>", multiple field, if multiple flag is not set, always use the first result',
+				'    "m<delimiter>", multiple field, if multiple flag is not set, always use the first result,',
+				'    "p<prefix>", prefix',
 			),
 			'api' => 'Api (action) name of common Wiki',
 			'rid' => 'Revision id of specified page - by dafault latest updated revision (0) is used',
@@ -183,7 +195,7 @@ class ApiWOMWikiObjectApi extends ApiBase {
 
 	protected function getExamples() {
 		return array (
-			'api.php?action=womapi&title=Somepage&xpath=//template&wommap=@name=titles,m||&api=query&prop=info'
+			'api.php?action=womapi&title=Somepage&xpath=//template&wommap=@name=titles,m||,ptemplate:&api=query&prop=info'
 		);
 	}
 
