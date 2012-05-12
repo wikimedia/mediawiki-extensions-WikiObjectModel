@@ -17,6 +17,15 @@ $messages['af'] = array(
 	'wom-desc' => 'Maklike bladsyobjek-model',
 );
 
+/** Asturian (Asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'objecteditor' => "Editor d'oxetos",
+	'wom_editor' => "Modelu d'oxetos",
+	'wom-desc' => "Modelu cenciellu d'oxetos de páxina pal usuariu de la wiki",
+);
+
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author Renessaince
  */
