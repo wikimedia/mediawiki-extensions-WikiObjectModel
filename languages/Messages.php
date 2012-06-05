@@ -8,6 +8,13 @@ $messages['en'] = array(
 	'wom-desc' => 'Easy Page Object Model for wiki user',
 );
 
+/** Message documentation (Message documentation)
+ * @author Beta16
+ */
+$messages['qqq'] = array(
+	'wom-desc' => '{{desc}}',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Naudefj
  */
@@ -114,6 +121,15 @@ $messages['ia'] = array(
 	'objecteditor' => 'Editor de objectos',
 	'wom_editor' => 'Modello de objectos',
 	'wom-desc' => 'Modello facile de objectos de pagina pro usatores de wikis',
+);
+
+/** Italian (italiano)
+ * @author Beta16
+ */
+$messages['it'] = array(
+	'objecteditor' => 'Editor oggetti',
+	'wom_editor' => 'Modello a oggetti',
+	'wom-desc' => 'Facile modello ad oggetti della pagina per utenti wiki',
 );
 
 /** Japanese (日本語)
