@@ -134,11 +134,12 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Schu
+ * @author Shirayuki
  */
 $messages['ja'] = array(
-	'objecteditor' => 'オブジェクトエディタ',
+	'objecteditor' => 'オブジェクトエディター',
 	'wom_editor' => 'オブジェクトモデル',
-	'wom-desc' => 'ウィキ利用者のための簡単​​なページオブジェクトモデル',
+	'wom-desc' => 'ウィキ利用者のための簡単なページオブジェクトモデル',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
