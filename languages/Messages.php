@@ -24,7 +24,7 @@ $messages['af'] = array(
 	'wom-desc' => 'Maklike bladsyobjek-model',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Xuacu
  */
 $messages['ast'] = array(
@@ -60,7 +60,7 @@ $messages['dsb'] = array(
 	'wom-desc' => 'Jadnory objektowy model za wikiwužywarja',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  * @author Bea.miau
  */
@@ -70,7 +70,7 @@ $messages['es'] = array(
 	'wom-desc' => 'Modelo de objetos de página simple para los usuarios del wiki',
 );
 
-/** French (Français)
+/** French (français)
  * @author Gomoko
  */
 $messages['fr'] = array(
@@ -79,7 +79,7 @@ $messages['fr'] = array(
 	'wom-desc' => "Modèle d'objet de page simple pour l'utilisateur wiki",
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -114,7 +114,7 @@ $messages['hsb'] = array(
 	'wom-desc' => 'Jednory objektowy model strony za wikiwužiwarja',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -151,7 +151,7 @@ $messages['lb'] = array(
 	'wom-desc' => 'Einfach Object-Schabloun vu Säite fir Wiki-Benotzer',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -178,7 +178,7 @@ $messages['nl'] = array(
 	'wom-desc' => 'Gemakkelijk paginaobjectmodel',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author BeginaFelicysym
  */
 $messages['pl'] = array(
@@ -197,7 +197,7 @@ $messages['pms'] = array(
 	'wom-desc' => "Model d'oget ëd pàgina sempia për l'utent wiki",
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author SandroHc
  */
 $messages['pt'] = array(
@@ -206,7 +206,7 @@ $messages['pt'] = array(
 	'wom-desc' => 'Modelo de Objectos "Easy Page" para os utilizadores da wiki',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Express2000
  */
 $messages['ru'] = array(
@@ -215,7 +215,7 @@ $messages['ru'] = array(
 	'wom-desc' => 'Облегченная модель объекта страницы для вики-пользователя',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Warrakkk
  */
 $messages['sv'] = array(
@@ -241,7 +241,7 @@ $messages['vi'] = array(
 	'wom-desc' => 'Mô hình đối tượng trang dễ sử dụng trên wiki',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Linforest
  */
 $messages['zh-hans'] = array(
