@@ -123,6 +123,14 @@ $messages['ia'] = array(
 	'wom-desc' => 'Modello facile de objectos de pagina pro usatores de wikis',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author Kenrick95
+ */
+$messages['id'] = array(
+	'objecteditor' => 'Editor Objek',
+	'wom_editor' => 'Model Objek',
+);
+
 /** Italian (italiano)
  * @author Beta16
  */
