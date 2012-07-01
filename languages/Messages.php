@@ -33,7 +33,7 @@ $messages['ast'] = array(
 	'wom-desc' => "Modelu cenciellu d'oxetos de páxina pal usuariu de la wiki",
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author Renessaince
  */
 $messages['be-tarask'] = array(
@@ -51,7 +51,7 @@ $messages['de'] = array(
 	'wom-desc' => 'Ermöglicht ein einfaches Objektmodell für Seiten',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -87,7 +87,7 @@ $messages['frp'] = array(
 	'wom_editor' => 'Modèlo de chousa',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -105,7 +105,7 @@ $messages['he'] = array(
 	'wom-desc' => 'דגם עצמים קל לדף עבור משתמש ויקי',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
