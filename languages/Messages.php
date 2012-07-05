@@ -232,6 +232,15 @@ $messages['sv'] = array(
 	'wom-desc' => 'Enkel sidoobjektmodell för wikianvändare',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'objecteditor' => 'Patnugot ng Bagay',
+	'wom_editor' => 'Modelo ng Bagay',
+	'wom-desc' => 'Modelong Bagay ng Maginhawang Pahina para sa tagagamit ng wiki',
+);
+
 /** Turkish (Türkçe)
  * @author Emperyan
  */
