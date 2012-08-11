@@ -150,6 +150,14 @@ $messages['ja'] = array(
 	'wom-desc' => 'ウィキ利用者のための簡単なページオブジェクトモデル',
 );
 
+/** Georgian (ქართული)
+ * @author David1010
+ */
+$messages['ka'] = array(
+	'objecteditor' => 'ობიექტების რედაქტორი',
+	'wom_editor' => 'ობიექტის მოდელი',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
