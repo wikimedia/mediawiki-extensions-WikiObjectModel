@@ -231,6 +231,14 @@ $messages['ru'] = array(
 	'wom-desc' => 'Облегченная модель объекта страницы для вики-пользователя',
 );
 
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'objecteditor' => 'වස්තු සංස්කාරක',
+	'wom_editor' => 'වස්තු මාදිලිය',
+);
+
 /** Swedish (svenska)
  * @author Warrakkk
  */
