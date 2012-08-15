@@ -24,6 +24,14 @@ $messages['af'] = array(
 	'wom-desc' => 'Maklike bladsyobjek-model',
 );
 
+/** Arabic (العربية)
+ * @author Meno25
+ */
+$messages['ar'] = array(
+	'objecteditor' => 'محرر الكائن',
+	'wom_editor' => 'نموذج الكائن',
+);
+
 /** Asturian (asturianu)
  * @author Xuacu
  */
