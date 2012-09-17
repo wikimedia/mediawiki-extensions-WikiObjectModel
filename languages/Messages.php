@@ -166,6 +166,15 @@ $messages['ka'] = array(
 	'wom_editor' => 'ობიექტის მოდელი',
 );
 
+/** Colognian (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'objecteditor' => 'Objäk Ändere',
+	'wom_editor' => 'Objäk Modäll',
+	'wom-desc' => 'E eijfach Objäk Modäll för Wikisigge.',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
