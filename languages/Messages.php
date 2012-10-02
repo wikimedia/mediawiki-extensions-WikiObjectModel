@@ -41,7 +41,7 @@ $messages['ast'] = array(
 	'wom-desc' => "Modelu cenciellu d'oxetos de páxina pal usuariu de la wiki",
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author Renessaince
  */
 $messages['be-tarask'] = array(
@@ -291,7 +291,7 @@ $messages['vi'] = array(
 	'wom-desc' => 'Mô hình đối tượng trang dễ sử dụng trên wiki',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Linforest
  */
 $messages['zh-hans'] = array(
