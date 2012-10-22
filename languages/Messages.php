@@ -300,10 +300,10 @@ $messages['zh-hans'] = array(
 	'wom-desc' => '针对维基站点用户的简易页面对象模型',
 );
 
-/** Traditional Chinese (中文（繁體）‎) */
+/** Traditional Chinese (中文（繁體）‎)
+ */
 $messages['zh-hant'] = array(
 	'objecteditor' => '對象編輯器',
 	'wom_editor' => '對象模型',
 	'wom-desc' => '針對維基站點用戶的簡易頁面對象模型',
 );
-
