@@ -166,6 +166,15 @@ $messages['ka'] = array(
 	'wom_editor' => 'ობიექტის მოდელი',
 );
 
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'objecteditor' => '개체 편집기',
+	'wom_editor' => '개체 모델',
+	'wom-desc' => '위키 사용자에 대한 쉬운 문서 개체 모델',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
