@@ -291,6 +291,15 @@ $messages['tr'] = array(
 	'wom_editor' => 'Nesne Modeli',
 );
 
+/** Ukrainian (українська)
+ * @author Base
+ */
+$messages['uk'] = array(
+	'objecteditor' => "Редактор об'єктів",
+	'wom_editor' => "Модель об'єкту",
+	'wom-desc' => "Легка об'єктна модель сторінки для вікі-користувача",
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
  */
