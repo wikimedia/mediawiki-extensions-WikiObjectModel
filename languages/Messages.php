@@ -10,9 +10,10 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Beta16
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'wom-desc' => '{{desc}}',
+	'wom-desc' => '{{desc|name=Wiki Object Model|url=http://www.mediawiki.org/wiki/Extension:Wiki_Object_Model}}',
 );
 
 /** Afrikaans (Afrikaans)
