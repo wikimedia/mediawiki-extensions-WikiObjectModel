@@ -264,6 +264,7 @@ $messages['ru'] = array(
 $messages['si'] = array(
 	'objecteditor' => 'වස්තු සංස්කාරක',
 	'wom_editor' => 'වස්තු මාදිලිය',
+	'wom-desc' => 'විකි පරිශීලක සඳහා පිටු වස්තු මොඩුලය',
 );
 
 /** Swedish (svenska)
