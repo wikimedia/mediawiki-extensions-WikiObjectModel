@@ -249,6 +249,15 @@ $messages['pt'] = array(
 	'wom-desc' => 'Modelo de Objectos "Easy Page" para os utilizadores da wiki',
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'objecteditor' => 'Cangiatore de Oggette',
+	'wom_editor' => 'Modelle de Oggette',
+	'wom-desc' => "Pàgene Semblice d'u Modelle de Oggette pe le utinde uicchi",
+);
+
 /** Russian (русский)
  * @author Express2000
  */
