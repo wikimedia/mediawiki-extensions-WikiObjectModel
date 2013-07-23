@@ -241,11 +241,12 @@ $messages['pms'] = array(
 );
 
 /** Portuguese (português)
+ * @author Luckas
  * @author SandroHc
  */
 $messages['pt'] = array(
-	'objecteditor' => 'Editor de Objectos',
-	'wom_editor' => 'Modelo de Objectos',
+	'objecteditor' => 'Editor de objetos',
+	'wom_editor' => 'Modelo de objetos',
 	'wom-desc' => 'Modelo de Objectos "Easy Page" para os utilizadores da wiki',
 );
 
