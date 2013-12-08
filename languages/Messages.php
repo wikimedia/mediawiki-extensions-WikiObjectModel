@@ -297,10 +297,12 @@ $messages['tl'] = array(
 
 /** Turkish (Türkçe)
  * @author Emperyan
+ * @author Joseph
  */
 $messages['tr'] = array(
 	'objecteditor' => 'Nesne Düzenleyicisi',
 	'wom_editor' => 'Nesne Modeli',
+	'wom-desc' => 'Viki kullanıcıları için Kolay Sayfa Nesne Modeli',
 );
 
 /** Ukrainian (українська)
