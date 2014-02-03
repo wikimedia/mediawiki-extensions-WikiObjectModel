@@ -79,6 +79,15 @@ $messages['es'] = array(
 	'wom-desc' => 'Modelo de objetos de página simple para los usuarios del wiki',
 );
 
+/** Persian (فارسی)
+ * @author Armin1392
+ */
+$messages['fa'] = array(
+	'objecteditor' => 'ویرایشگر موضوع',
+	'wom_editor' => 'مدل موضوع',
+	'wom-desc' => 'صفحهٔ مدل موضوع آسان برای کاربر ویکی',
+);
+
 /** French (français)
  * @author Gomoko
  */
