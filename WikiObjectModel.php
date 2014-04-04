@@ -6,12 +6,13 @@
  */
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
-define( 'WOM_VERSION', '1.0.2 alpha' );
+define( 'WOM_VERSION', '1.1.0 alpha' );
 
 $wgOMIP = $IP . '/extensions/WikiObjectModel';
 $wgOMScriptPath = $wgScriptPath . '/extensions/WikiObjectModel';
 
 $wgExtensionFunctions[] = 'wfWOMSetupExtension';
+$wgMessagesDirs['WikiObjectModel'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['WikiObjectModel'] = $wgOMIP . '/languages/Messages.php';
 
 require_once( $wgOMIP . '/includes/WOM_Setup.php' );
