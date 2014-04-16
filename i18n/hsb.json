@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Michawiki"
-        ]
-    },
-    "objecteditor": "Objektowy editor",
-    "wom_editor": "Objektowy model",
-    "wom-desc": "Jednory objektowy model strony za wikiwužiwarja"
+	"@metadata": {
+		"authors": [
+			"Michawiki"
+		]
+	},
+	"objecteditor": "Objektowy editor",
+	"wom_editor": "Objektowy model",
+	"wom-desc": "Jednory objektowy model strony za wikiwužiwarja"
 }

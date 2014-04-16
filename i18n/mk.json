@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bjankuloski06"
-        ]
-    },
-    "objecteditor": "Уредник на објекти",
-    "wom_editor": "Модел на објект",
-    "wom-desc": "Лесен модел на објект за страници за корисник на вики"
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"objecteditor": "Уредник на објекти",
+	"wom_editor": "Модел на објект",
+	"wom-desc": "Лесен модел на објект за страници за корисник на вики"
 }

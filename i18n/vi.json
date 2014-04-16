@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Minh Nguyen"
-        ]
-    },
-    "objecteditor": "Trình sửa đổi đối tượng",
-    "wom_editor": "Mô hình đối tượng",
-    "wom-desc": "Mô hình đối tượng trang dễ sử dụng trên wiki"
+	"@metadata": {
+		"authors": [
+			"Minh Nguyen"
+		]
+	},
+	"objecteditor": "Trình sửa đổi đối tượng",
+	"wom_editor": "Mô hình đối tượng",
+	"wom-desc": "Mô hình đối tượng trang dễ sử dụng trên wiki"
 }

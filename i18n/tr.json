@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Emperyan",
-            "Joseph"
-        ]
-    },
-    "objecteditor": "Nesne Düzenleyicisi",
-    "wom_editor": "Nesne Modeli",
-    "wom-desc": "Viki kullanıcıları için Kolay Sayfa Nesne Modeli"
+	"@metadata": {
+		"authors": [
+			"Emperyan",
+			"Joseph"
+		]
+	},
+	"objecteditor": "Nesne Düzenleyicisi",
+	"wom_editor": "Nesne Modeli",
+	"wom-desc": "Viki kullanıcıları için Kolay Sayfa Nesne Modeli"
 }

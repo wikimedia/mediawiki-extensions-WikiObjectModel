@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Toliño"
-        ]
-    },
-    "objecteditor": "Editor de obxectos",
-    "wom_editor": "Modelo de obxectos",
-    "wom-desc": "Modelo de obxectos de páxina sinxelo para os usuarios do wiki"
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"objecteditor": "Editor de obxectos",
+	"wom_editor": "Modelo de obxectos",
+	"wom-desc": "Modelo de obxectos de páxina sinxelo para os usuarios do wiki"
 }

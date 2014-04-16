@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Kenrick95"
-        ]
-    },
-    "objecteditor": "Editor Objek",
-    "wom_editor": "Model Objek"
+	"@metadata": {
+		"authors": [
+			"Kenrick95"
+		]
+	},
+	"objecteditor": "Editor Objek",
+	"wom_editor": "Model Objek"
 }

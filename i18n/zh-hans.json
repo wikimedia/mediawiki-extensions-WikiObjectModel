@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Linforest"
-        ]
-    },
-    "objecteditor": "对象编辑器",
-    "wom_editor": "对象模型",
-    "wom-desc": "针对维基站点用户的简易页面对象模型"
+	"@metadata": {
+		"authors": [
+			"Linforest"
+		]
+	},
+	"objecteditor": "对象编辑器",
+	"wom_editor": "对象模型",
+	"wom-desc": "针对维基站点用户的简易页面对象模型"
 }

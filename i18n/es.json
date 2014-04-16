@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Armando-Martin",
-            "Bea.miau"
-        ]
-    },
-    "objecteditor": "Editor de objetos",
-    "wom_editor": "Modelo de objetos",
-    "wom-desc": "Modelo de objetos de página simple para los usuarios del wiki"
+	"@metadata": {
+		"authors": [
+			"Armando-Martin",
+			"Bea.miau"
+		]
+	},
+	"objecteditor": "Editor de objetos",
+	"wom_editor": "Modelo de objetos",
+	"wom-desc": "Modelo de objetos de página simple para los usuarios del wiki"
 }
