@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Marmase"
+			"Marmase",
+			"Mirzali"
 		]
 	},
-	"objecteditor": "Obje Editor",
-	"wom_editor": "Obje Model"
+	"objecteditor": "Editorê Obcey",
+	"wom_editor": "Modelê Obcey"
 }
