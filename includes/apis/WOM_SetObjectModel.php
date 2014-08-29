@@ -300,36 +300,6 @@ class ApiWOMSetObjectModel extends ApiBase {
 		return true;
 	}
 
-	public function getPossibleErrors() {
-		global $wgMaxArticleSize;
-
-		return array_merge( parent::getPossibleErrors(), array(
-			array( 'missingparam', 'title' ),
-			array( 'missingparam', 'xpath' ),
-			array( 'missingparam', 'text' ),
-			array( 'invalidtitle', 'title' ),
-			array( 'nocreate-missing' ),
-			array( 'nosuchrevid', 'rid' ),
-			array( 'revwrongpage', 'id', 'text' ),
-			array( 'hashcheckfailed' ),
-			array( 'hookaborted' ),
-			array( 'noimageredirect-anon' ),
-			array( 'noimageredirect-logged' ),
-			array( 'spamdetected', 'spam' ),
-			array( 'filtered' ),
-			array( 'blockedtext' ),
-			array( 'contenttoobig', $wgMaxArticleSize ),
-			array( 'noedit-anon' ),
-			array( 'noedit' ),
-			array( 'actionthrottledtext' ),
-			array( 'wasdeleted' ),
-			array( 'nocreate-loggedin' ),
-			array( 'blankpage' ),
-			array( 'editconflict' ),
-			array( 'unknownerror', 'retval' ),
-		) );
-	}
-
 	protected function getAllowedParams() {
 		return array (
 			'title' => null,
