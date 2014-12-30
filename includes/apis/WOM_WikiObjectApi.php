@@ -77,7 +77,11 @@ class ApiWOMWikiObjectApi extends ApiBase {
 				'result' => 'Failure',
 				'message' => array(),
 			);
-			$this->getResult()->setContent( $result['message'], $err );
+			if ( defined( 'ApiResult::META_CONTENT' ) ) {
+				ApiResult::setContentValue( $result['message'], 'message', $err );
+			} else {
+				ApiResult::setContent( $result['message'], $err );
+			}
 		} else {
 			$result['result'] = 'Success';
 			$result['revisionID'] = $page_obj->getRevisionID();
