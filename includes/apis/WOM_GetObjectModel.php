@@ -131,8 +131,4 @@ OUTPUT;
 			'api.php?action=womget&title=Somepage&xpath=//template[@name=SomeTempate]/template_field[@key=templateparam]'
 		);
 	}
-
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
-	}
 }

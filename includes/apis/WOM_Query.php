@@ -147,8 +147,4 @@ OUTPUT;
 			'api.php?action=womquery&title=Somepage&key=hello,world'
 		);
 	}
-
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
-	}
 }

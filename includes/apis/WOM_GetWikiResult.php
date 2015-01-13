@@ -127,8 +127,4 @@ class ApiWOMGetWikiResult extends ApiBase {
 //	public function mustBePosted() {
 //		return true;
 //	}
-
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
-	}
 }

@@ -198,8 +198,4 @@ class ApiWOMWikiObjectApi extends ApiBase {
 			'api.php?action=womapi&title=Somepage&xpath=//template&wommap=@name=titles,m||,ptemplate:&api=query&prop=info'
 		);
 	}
-
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
-	}
 }

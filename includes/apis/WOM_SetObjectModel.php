@@ -410,8 +410,4 @@ class ApiWOMSetObjectModel extends ApiBase {
 			'api.php?action=womset&title=Somepage&xpath=//template[@name=SomeTempate]/template_field[@key=templateparam]&text=It+works!&token=%2B\\'
 		);
 	}
-
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
-	}
 }
