@@ -63,7 +63,11 @@ class ApiWOMQuery extends ApiBase {
 				'result' => 'Failure',
 				'message' => array(),
 			);
-			$this->getResult()->setContent( $result['message'], $err );
+			if ( defined( 'ApiResult::META_CONTENT' ) ) {
+				ApiResult::setContentValue( $result['message'], 'message', $err );
+			} else {
+				ApiResult::setContent( $result['message'], $err );
+			}
 		} else {
 			$result['result'] = 'Success';
 
@@ -75,7 +79,11 @@ class ApiWOMQuery extends ApiBase {
 					if ( $id == '' ) continue;
 					++ $count;
 				}
-				$this->getResult()->setContent( $result['return'], $count );
+				if ( defined( 'ApiResult::META_CONTENT' ) ) {
+					ApiResult::setContentValue( $result['return'], 'count', $count );
+				} else {
+					ApiResult::setContent( $result['return'], $count );
+				}
 			} else {
 				$xml = '';
 				$page_obj = WOMProcessor::getPageObject( $articleTitle, $rid );
@@ -85,9 +93,17 @@ class ApiWOMQuery extends ApiBase {
 					$result['return'][$id] = array();
 					if ( $type == 'xml' ) {
 						$xml .= "<{$id} xml:space=\"preserve\">{$wobj->toXML()}</{$id}>";
-//						$this->getResult()->setContent( $result['return'][$id], $wobj->toXML() );
+//						if ( defined( 'ApiResult::META_CONTENT' ) ) {
+//							ApiResult::setContentValue( $result['return'][$id], 'xml', $wobj->toXML() );
+//						} else {
+//							ApiResult::setContent( $result['return'][$id], $wobj->toXML() );
+//						}
 					} else {
-						$this->getResult()->setContent( $result['return'][$id], $wobj->getWikiText() );
+						if ( defined( 'ApiResult::META_CONTENT' ) ) {
+							ApiResult::setContentValue( $result['return'][$id], 'wikitext', $wobj->getWikiText() );
+						} else {
+							ApiResult::setContent( $result['return'][$id], $wobj->getWikiText() );
+						}
 					}
 				}
 				if ( $type == 'xml' ) {

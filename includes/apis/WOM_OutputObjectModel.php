@@ -52,7 +52,11 @@ class ApiWOMOutputObjectModel extends ApiBase {
 				'result' => 'Failure',
 				'message' => array(),
 			);
-			$this->getResult()->setContent( $result['message'], $err );
+			if ( defined( 'ApiResult::META_CONTENT' ) ) {
+				ApiResult::setContentValue( $result['message'], 'message', $err );
+			} else {
+				ApiResult::setContent( $result['message'], $err );
+			}
 		} else {
 			$result['result'] = 'Success';
 			$result['revisionID'] = $page_obj->getRevisionID();
@@ -65,7 +69,11 @@ class ApiWOMOutputObjectModel extends ApiBase {
 					if ( $id == '' ) continue;
 					++ $count;
 				}
-				$this->getResult()->setContent( $result['return'], $count );
+				if ( defined( 'ApiResult::META_CONTENT' ) ) {
+					ApiResult::setContentValue( $result['return'], 'count', $count );
+				} else {
+					ApiResult::setContent( $result['return'], $count );
+				}
 			} else {
 				$xml = '';
 				foreach ( $objs as $id ) {
@@ -75,7 +83,11 @@ class ApiWOMOutputObjectModel extends ApiBase {
 					if ( $type == 'xml' ) {
 						$xml .= "<{$id} xml:space=\"preserve\">{$wobj->toXML()}</{$id}>";
 					} else {
-						$this->getResult()->setContent( $result['return'][$id], $wobj->getWikiText() );
+						if ( defined( 'ApiResult::META_CONTENT' ) ) {
+							ApiResult::setContentValue( $result['return'][$id], 'wikitext', $wobj->getWikiText() );
+						} else {
+							ApiResult::setContent( $result['return'][$id], $wobj->getWikiText() );
+						}
 					}
 				}
 				if ( $type == 'xml' ) {

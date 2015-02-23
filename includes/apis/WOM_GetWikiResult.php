@@ -23,7 +23,11 @@ class ApiWOMGetWikiResult extends ApiBase {
 			'message' => array(),
 			'return' => array(),
 		);
-		$this->getResult()->setContent( $result['wiki'], $wiki );
+		if ( defined( 'ApiResult::META_CONTENT' ) ) {
+			ApiResult::setContentValue( $result['wiki'], 'wiki', $wiki );
+		} else {
+			ApiResult::setContent( $result['wiki'], $wiki );
+		}
 
 		global $wgParser;
 		$popt = new ParserOptions();
@@ -75,14 +79,26 @@ class ApiWOMGetWikiResult extends ApiBase {
 			}
 		} else {
 			$pout = $wgParser->parse( $wiki, $title, $popt );
-			$this->getResult()->setContent( $result['return'], $pout->getText() );
+			if ( defined( 'ApiResult::META_CONTENT' ) ) {
+				ApiResult::setContentValue( $result['return'], 'text', $pout->getText() );
+			} else {
+				ApiResult::setContent( $result['return'], $pout->getText() );
+			}
 		}
 		if ( isset( $err ) ) {
 			$result['result'] = 'Failure';
-			$this->getResult()->setContent( $result['message'], $err );
+			if ( defined( 'ApiResult::META_CONTENT' ) ) {
+				ApiResult::setContentValue( $result['message'], 'message', $err );
+			} else {
+				ApiResult::setContent( $result['message'], $err );
+			}
 		} else {
 			$result['result'] = 'Success';
-			$this->getResult()->setContent( $result['message'], 'no error' );
+			if ( defined( 'ApiResult::META_CONTENT' ) ) {
+				ApiResult::setContentValue( $result['message'], 'message', 'no error' );
+			} else {
+				ApiResult::setContent( $result['message'], 'no error' );
+			}
 		}
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
