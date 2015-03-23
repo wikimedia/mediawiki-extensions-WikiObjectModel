@@ -2,8 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Beta16",
-			"Shirayuki"
+			"Shirayuki",
+			"Umherirrender"
 		]
 	},
-	"wom-desc": "{{desc|name=Wiki Object Model|url=http://www.mediawiki.org/wiki/Extension:Wiki_Object_Model}}"
+	"wom-desc": "{{desc|name=Wiki Object Model|url=https://www.mediawiki.org/wiki/Extension:Wiki_Object_Model}}"
 }
