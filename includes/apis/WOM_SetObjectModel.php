@@ -174,7 +174,7 @@ class ApiWOMSetObjectModel extends ApiBase {
 				$wgRequest->setVal( 'wpCaptchaWord', $params['captchaword'] );
 
 			$r = array();
-			if ( !wfRunHooks( 'APIEditBeforeSave', array( $ep, $ep->textbox1, &$r ) ) )
+			if ( !Hooks::run( 'APIEditBeforeSave', array( $ep, $ep->textbox1, &$r ) ) )
 			{
 				if ( count( $r ) )
 				{

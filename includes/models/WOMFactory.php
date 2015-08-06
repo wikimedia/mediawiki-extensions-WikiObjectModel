@@ -72,7 +72,7 @@ class WikiObjectModelFactory {
 			'_sec'  => 'WOMSectionModel', // Section
 		);
 
-		wfRunHooks( 'mwInitWOMTypes' );
+		Hooks::run( 'mwInitWOMTypes' );
 	}
 
 	/**

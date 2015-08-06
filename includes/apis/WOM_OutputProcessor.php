@@ -313,7 +313,7 @@ class WOMOutputProcessor {
 			}
 		}
 
-		if ( wfRunHooks ( 'womGetExtraOutputObjects', array ( $wgTitle, &$wom ) ) ) {
+		if ( Hooks::run ( 'womGetExtraOutputObjects', array ( $wgTitle, &$wom ) ) ) {
 		}
 		return $wom;
 	}

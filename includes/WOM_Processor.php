@@ -32,7 +32,7 @@ class WOMProcessor {
 		self::$base_parser = self::$parsers[WOM_PARSER_ID_TEXT];
 
 		$parsers = array();
-		if ( wfRunHooks ( 'womRegisterParsers', array ( &$parsers ) ) ) {
+		if ( Hooks::run ( 'womRegisterParsers', array ( &$parsers ) ) ) {
 			foreach ( $parsers as $p ) {
 				$parser = new $p();
 				self::$parsers[$parser->getParserID()] = $parser;
@@ -42,7 +42,7 @@ class WOMProcessor {
 			}
 		}
 		$parsers = array();
-		if ( wfRunHooks ( 'womRegisterParserFunctionParsers', array ( &$parsers ) ) ) {
+		if ( Hooks::run ( 'womRegisterParserFunctionParsers', array ( &$parsers ) ) ) {
 			foreach ( $parsers as $p ) {
 				$parser = new $p();
 				self::$parserFuncParsers[$parser->getParserID()] = $parser;
