@@ -6,5 +6,7 @@
 			"Umherirrender"
 		]
 	},
+	"objecteditor": "Used as title on [[Special:Objecteditor]]",
+	"wom_editor": "Name for the \"Object Model\"",
 	"wom-desc": "{{desc|name=Wiki Object Model|url=https://www.mediawiki.org/wiki/Extension:Wiki_Object_Model}}"
 }
