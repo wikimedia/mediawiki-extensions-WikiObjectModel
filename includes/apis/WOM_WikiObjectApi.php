@@ -130,7 +130,7 @@ class ApiWOMWikiObjectApi extends ApiBase {
 	protected function getAllowedParams() {
 		// tricky here
 		$mainInst = $this->getMain();
-		$tmp = array_keys( $mainInst->getModules() );
+		$tmp = array_keys( $mainInst->getModuleManager()->getNamesWithClasses( 'action' ) );
 		$ids = array(
 			array_search( 'womset', $tmp ),
 			array_search( 'womget', $tmp ),
@@ -162,7 +162,7 @@ class ApiWOMWikiObjectApi extends ApiBase {
 			$params['...'] = null;
 		} else {
 //			$mainInst = new ApiMain($mainInst->getRequest());
-			$modules = $mainInst->getModules();
+			$modules = $mainInst->getModuleManager()->getNamesWithClasses( 'action' );
 			$this->m_apiInst = new $modules[$api] ( $mainInst, $api );
 			$params = $params + $this->m_apiInst->getFinalParams();
 		}
