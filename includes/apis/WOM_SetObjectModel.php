@@ -145,13 +145,13 @@ class ApiWOMSetObjectModel extends ApiBase {
 					break;
 				case 'preferences':
 					if ( $titleObj->exists() )
-						$watch = $wgUser->getOption( 'watchdefault' ) || $titleObj->userIsWatching();
+						$watch = $wgUser->getOption( 'watchdefault' ) || $wgUser->isWatched( $titleObj );
 					else
 						$watch = $wgUser->getOption( 'watchcreations' );
 					break;
 				case 'nochange':
 				default:
-					$watch = $titleObj->userIsWatching();
+					$watch = $wgUser->isWatched( $titleObj );
 			}
 			// Deprecated parameters
 			if ( $params['watch'] )
