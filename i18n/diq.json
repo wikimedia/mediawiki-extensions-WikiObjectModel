@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Marmase",
-			"Mirzali"
+			"Mirzali",
+			"Kumkumuk"
 		]
 	},
 	"objecteditor": "Editorê Obcey",
-	"wom_editor": "Modelê Obcey"
+	"wom_editor": "Modelê Obcey",
+	"wom-desc": "Qandë Karberanê wiki pera rehat umodrla obceya"
 }
