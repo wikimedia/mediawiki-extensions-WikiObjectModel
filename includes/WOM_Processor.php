@@ -601,9 +601,9 @@ class WOMProcessor {
 		$wom->insertPageObject( $object, $obj_id );
 
 		// save to wiki
-		$article = new Article( $title );
-		$content = $wom->getWikiText();
-		$article->doEdit( $content, $summary );
+		$page = WikiPage::factory( $title );
+		$content = ContentHandler::makeContent( $wom->getWikiText(), $title );
+		$page->doEditContent( $content, $summary );
 
 		wfProfileOut( $fname );
 	}
@@ -631,9 +631,9 @@ class WOMProcessor {
 		$wom->appendChildObject( $object, $obj_id );
 
 		// save to wiki
-		$article = new Article( $title );
-		$content = $wom->getWikiText();
-		$article->doEdit( $content, $summary );
+		$page = WikiPage::factory( $title );
+		$content = ContentHandler::makeContent( $wom->getWikiText(), $title );
+		$page->doEditContent( $content, $summary );
 
 		wfProfileOut( $fname );
 	}
@@ -655,9 +655,9 @@ class WOMProcessor {
 		$wom->updatePageObject( $object, $obj_id );
 
 		// save to wiki
-		$article = new Article( $title );
-		$content = $wom->getWikiText();
-		$article->doEdit( $content, $summary );
+		$page = WikiPage::factory( $title );
+		$content = ContentHandler::makeContent( $wom->getWikiText(), $title );
+		$page->doEditContent( $content, $summary );
 
 		wfProfileOut( $fname );
 	}
@@ -679,9 +679,9 @@ class WOMProcessor {
 		$wom->removePageObject( $obj_id );
 
 		// save to wiki
-		$article = new Article( $title );
-		$content = $wom->getWikiText();
-		$article->doEdit( $content, $summary );
+		$page = WikiPage::factory( $title );
+		$content = ContentHandler::makeContent( $wom->getWikiText(), $title );
+		$page->doEditContent( $content, $summary );
 
 		wfProfileOut( $fname );
 	}
@@ -705,9 +705,9 @@ class WOMProcessor {
 		$wom->insertPageObject( new WOMTextModel( $text ), $obj_id );
 
 		// save to wiki
-		$article = new Article( $title );
-		$content = $wom->getWikiText();
-		$article->doEdit( $content, $summary );
+		$page = WikiPage::factory( $title );
+		$content = ContentHandler::makeContent( $wom->getWikiText(), $title );
+		$page->doEditContent( $content, $summary );
 
 		wfProfileOut( $fname );
 	}
@@ -737,9 +737,9 @@ class WOMProcessor {
 		$wom->appendChildObject( new WOMTextModel( $text ), $obj_id );
 
 		// save to wiki
-		$article = new Article( $title );
-		$content = $wom->getWikiText();
-		$article->doEdit( $content, $summary );
+		$page = WikiPage::factory( $title );
+		$content = ContentHandler::makeContent( $wom->getWikiText(), $title );
+		$page->doEditContent( $content, $summary );
 
 		wfProfileOut( $fname );
 	}
@@ -763,9 +763,9 @@ class WOMProcessor {
 		$wom->updatePageObject( new WOMTextModel( $text ), $obj_id );
 
 		// save to wiki
-		$article = new Article( $title );
-		$content = $wom->getWikiText();
-		$article->doEdit( $content, $summary );
+		$page = WikiPage::factory( $title );
+		$content = ContentHandler::makeContent( $wom->getWikiText(), $title );
+		$page->doEditContent( $content, $summary );
 
 		wfProfileOut( $fname );
 	}
