@@ -163,7 +163,8 @@ class WOMOutputProcessor {
 		if ( $revision === NULL ) {
 			throw new MWException( __METHOD__ . ": Page not exist '{$page_name} ({$rid})'" );
 		}
-		$text = $revision->getText();
+		$content = $revision->getContent();
+		$text = ContentHandler::getContentText( $content );
 		$wom = WOMProcessor::parseToWOM( $text );
 
 		global $wgOMOutputHookedParserFunctions;

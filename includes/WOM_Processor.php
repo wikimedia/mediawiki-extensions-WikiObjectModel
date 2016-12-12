@@ -419,7 +419,8 @@ class WOMProcessor {
 		if ( $revision == null ) {
 			throw new MWException( __METHOD__ . ": Page not exist '{$title} ({$rid})'" );
 		}
-		$content = $revision->getText();
+		$revisionContent = $revision->getContent();
+		$content = ContentHandler::getContentText( $revisionContent );
 
 		$wom = self::parseToWOM( $content );
 		$wom->setTitle( $title );
