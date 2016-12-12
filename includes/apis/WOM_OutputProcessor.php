@@ -104,7 +104,7 @@ class WOMOutputProcessor {
 			$rawparams = func_get_args();
 			array_shift( $rawparams ); // we already know the $parser ...
 
-			SMWQueryProcessor::processFunctionParams( $rawparams, &$querystring, &$params, &$printouts );
+			SMWQueryProcessor::processFunctionParams( $rawparams, $querystring, $params, $printouts );
 			self::prequery( $params, $printouts, $label, $wom_id );
 
 			$query  = SMWQueryProcessor::createQuery(
