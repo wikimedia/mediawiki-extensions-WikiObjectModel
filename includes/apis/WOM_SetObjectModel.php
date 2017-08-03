@@ -352,55 +352,6 @@ class ApiWOMSetObjectModel extends ApiBase {
 		);
 	}
 
-	protected function getParamDescription() {
-		return array (
-			'title' => 'Title of the page to modify',
-			'verb' => 'Action verb to set to change wiki object instances',
-			'xpath' => array(
-				'DOM-like xpath to locate WOM object instances (http://www.w3schools.com/xpath/xpath_syntax.asp)',
-				'verb = update, xpath to elements to be updated',
-				'verb = attribute, xpath to elements, the attribute will be updated',
-				'verb = insert, the element will be inserted right before the element specified by xpath',
-				'verb = append, the element will be appended right to the element children elements specified by xpath',
-				'verb = remove, xpath to element to be removed',
-				'verb = removeall, xpath to elements to be removed',
-			),
-			'text' => array(
-				'Value to set',
-				'verb = attribute, attribute_name=attribute_value',
-			),
-			'summary' => 'Edit summary',
-			'rid' => 'Revision id of specified page - by dafault latest updated revision (0) is used',
-			'force_update' => array(
-				'Force to update even if the revision id does not match the latest edition',
-				'force_update = false, return "revision not match" exception if rid is not the latest one',
-				'force_update = true, update anyway',
-			),
-			'token' => 'Edit token. You can get one of these through prop=info',
-			'minor' => 'Minor edit',
-			'notminor' => 'Non-minor edit',
-			'bot' => 'Mark this edit as bot',
-			'basetimestamp' => array( 'Timestamp of the base revision (gotten through prop=revisions&rvprop=timestamp).',
-						'Used to detect edit conflicts; leave unset to ignore conflicts.'
-			),
-			'starttimestamp' => array( 'Timestamp when you obtained the edit token.',
-						'Used to detect edit conflicts; leave unset to ignore conflicts.'
-			),
-			'nocreate' => 'Throw an error if the page doesn\'t exist',
-			'watch' => 'Add the page to your watchlist',
-			'unwatch' => 'Remove the page from your watchlist',
-			'watchlist' => 'Unconditionally add or remove the page from your watchlist, use preferences or do not change watch',
-			'captchaid' => 'CAPTCHA ID from previous request',
-			'captchaword' => 'Answer to the CAPTCHA',
-			'md5' => array(	'The MD5 hash of the text parameter, or the prependtext and appendtext parameters concatenated.',
-				 	'If set, the edit won\'t be done unless the hash is correct' ),
-		);
-	}
-
-	protected function getDescription() {
-		return 'Call to set object values to MW page, by Wiki Object Model';
-	}
-
 	public function getTokenSalt() {
 		return '';
 	}

@@ -109,28 +109,10 @@ class ApiWOMGetWikiResult extends ApiBase {
 			'wiki' => null,
 			'type' => array(
 				ApiBase :: PARAM_DFLT => 'wiki',
-				ApiBase :: PARAM_TYPE => $types
+				ApiBase :: PARAM_TYPE => $types,
+				ApiBase :: PARAM_HELP_MSG_PER_VALUE => array(),
 			),
 		);
-	}
-
-	protected function getParamDescription() {
-		$types = defined( 'SMW_VERSION' ) ? array(
-				'Type to fetch wiki parse result',
-				'type = wiki, get parser result of wiki text',
-				'type = ask, get parser result of ask query'
-			) : array(
-				'Type to fetch wiki parse result',
-				'type = wiki, get parser result of wiki text',
-			);
-		return array (
-			'wiki' => 'Wiki text',
-			'type' => $types
-		);
-	}
-
-	protected function getDescription() {
-		return 'Call to get parse result of wiki';
 	}
 
 	protected function getExamples() {

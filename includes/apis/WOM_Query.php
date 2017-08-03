@@ -142,22 +142,6 @@ OUTPUT;
 		);
 	}
 
-	protected function getParamDescription() {
-		return array (
-			'title' => 'Title of the page to modify',
-			'key' => 'query key',
-			'xpath' => 'DOM-like xpath to locate WOM object instances (http://www.w3schools.com/xpath/xpath_syntax.asp)',
-			'type' => array (
-				'Object type to fetch useful wiki object data',
-			),
-			'rid' => 'Revision id of specified page - by dafault latest updated revision (0) is used',
-		);
-	}
-
-	protected function getDescription() {
-		return 'Call to get objects to Wiki Object Model';
-	}
-
 	protected function getExamples() {
 		return array (
 			'api.php?action=womquery&title=Somepage&key=hello,world'

@@ -170,33 +170,6 @@ class ApiWOMWikiObjectApi extends ApiBase {
 		return $params;
 	}
 
-	protected function getParamDescription() {
-		return array (
-			'title' => 'Title of the page to modify',
-			'xpath' => 'DOM-like xpath to locate WOM object instances (http://www.w3schools.com/xpath/xpath_syntax.asp)',
-			'wommap' => array (
-				'Settings to map WOM result on parameter(s) of api actions',
-				'"|" as delimiter, to separate map items',
-				'format: xpath of values=api parameter name,other settings',
-				'    for "|" inside map item, use "||" to escape',
-				'    for "," inside map item, use ",," to escape',
-				'  xpath:',
-				'    "@property" as property name,',
-				'    "innerwiki" as wiki text inside xml object',
-				'  settings:',
-				'    "m<delimiter>", multiple field, if multiple flag is not set, always use the first result,',
-				'    "p<prefix>", prefix',
-			),
-			'api' => 'Api (action) name of common Wiki',
-			'rid' => 'Revision id of specified page - by dafault latest updated revision (0) is used',
-			'...' => 'standard api parameters',
-		);
-	}
-
-	protected function getDescription() {
-		return 'Call to execute MW apis upon Wiki objects inside title';
-	}
-
 	protected function getExamples() {
 		return array (
 			'api.php?action=womapi&title=Somepage&xpath=//template&wommap=@name=titles,m||,ptemplate:&api=query&prop=info'

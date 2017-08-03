@@ -115,6 +115,7 @@ OUTPUT;
 					'count',
 					'xml',
 				),
+				ApiBase::PARAM_HELP_MSG_PER_VALUE => [],
 			),
 			'rid' => array (
                                 ApiBase :: PARAM_TYPE => 'integer',
@@ -122,24 +123,6 @@ OUTPUT;
                                 ApiBase :: PARAM_MIN => 0
                         ),
 		);
-	}
-
-	protected function getParamDescription() {
-		return array (
-			'title' => 'Title of the page to modify',
-			'xpath' => 'DOM-like xpath to locate WOM object instances (http://www.w3schools.com/xpath/xpath_syntax.asp)',
-			'type' => array (
-				'Type to fetch useful wiki object data',
-				'type = wiki, get wiki text of specified object',
-				'type = count, get objects count with specified xpath',
-				'type = xml, view "encoded objects\' xml" with specified xpath, usually use with format=xml',
-			),
-			'rid' => 'Revision id of specified page - by dafault latest updated revision (0) is used',
-		);
-	}
-
-	protected function getDescription() {
-		return 'Call to get object values to Wiki Object Model';
 	}
 
 	protected function getExamples() {
