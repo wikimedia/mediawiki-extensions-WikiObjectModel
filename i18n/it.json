@@ -1,10 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16"
+			"Beta16",
+			"Greis"
 		]
 	},
 	"objecteditor": "Editor oggetti",
 	"wom_editor": "Modello a oggetti",
-	"wom-desc": "Facile modello ad oggetti della pagina per utenti wiki"
+	"wom-desc": "Facile modello ad oggetti della pagina per utenti wiki",
+	"apihelp-womset-param-minor": "Modifica minore.",
+	"apihelp-womapi-param-title": "Titolo della pagina da modificare.",
+	"apihelp-womoutput-param-title": "Titolo della pagina da modificare.",
+	"apihelp-womquery-param-title": "Titolo della pagina da modificare."
 }

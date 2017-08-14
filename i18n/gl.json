@@ -1,10 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toliño"
+			"Toliño",
+			"Elisardojm"
 		]
 	},
 	"objecteditor": "Editor de obxectos",
 	"wom_editor": "Modelo de obxectos",
-	"wom-desc": "Modelo de obxectos de páxina sinxelo para os usuarios do wiki"
+	"wom-desc": "Modelo de obxectos de páxina sinxelo para os usuarios do wiki",
+	"apihelp-womset-param-summary": "Resumo de edición.",
+	"apihelp-womset-param-minor": "Edición pequena.",
+	"apihelp-womset-param-notminor": "Edición non pequena.",
+	"apihelp-womset-param-bot": "Marcar esta edición como de bot.",
+	"apihelp-womset-param-watch": "Engadir esta páxina á súa lista de vixilancia.",
+	"apihelp-womset-param-unwatch": "Eliminar esta páxina da súa lista de vixilancia.",
+	"apihelp-womset-param-captchaword": "Resposta ó CAPTCHA."
 }

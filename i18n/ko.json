@@ -1,10 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"아라"
+			"아라",
+			"Ykhwong"
 		]
 	},
 	"objecteditor": "개체 편집기",
 	"wom_editor": "개체 모델",
-	"wom-desc": "위키 사용자에 대한 쉬운 문서 개체 모델"
+	"wom-desc": "위키 사용자에 대한 쉬운 문서 개체 모델",
+	"apihelp-womset-param-summary": "편집 요약입니다.",
+	"apihelp-womset-param-minor": "사소한 편집.",
+	"apihelp-womset-param-notminor": "사소하지 않은 편집.",
+	"apihelp-womset-param-bot": "이 편집을 봇으로 표시합니다.",
+	"apihelp-womset-param-nocreate": "페이지가 존재하지 않으면 오류를 출력합니다.",
+	"apihelp-womset-param-captchaword": "CAPTCHA에 응답합니다.",
+	"apihelp-womapi-param-...": "표준 api 변수입니다.",
+	"apihelp-womwiki-param-wiki": "위키 텍스트.",
+	"apihelp-womwiki-paramvalue-type-wiki": "위키 텍스트의 파서 결과를 가져옵니다."
 }

@@ -6,5 +6,9 @@
 	},
 	"objecteditor": "Object Editeur",
 	"wom_editor": "Object-Schabloun",
-	"wom-desc": "Einfach Object-Schabloun vu Säite fir Wiki-Benotzer"
+	"wom-desc": "Einfach Object-Schabloun vu Säite fir Wiki-Benotzer",
+	"apihelp-womset-param-minor": "Kleng Ännerung.",
+	"apihelp-womset-param-notminor": "Keng kleng Ännerung",
+	"apihelp-womset-param-bot": "Dës Ännerung als Bot-Ännerung markéieren.",
+	"apihelp-womset-param-watch": "D'Säit op Är Iwwerwaachungslëscht bäisetzen."
 }

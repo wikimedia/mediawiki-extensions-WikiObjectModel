@@ -3,7 +3,8 @@
 		"authors": [
 			"Beta16",
 			"Shirayuki",
-			"Umherirrender"
+			"Umherirrender",
+			"Liuxinyu970226"
 		]
 	},
 	"objecteditor": "Used as title on [[Special:Objecteditor]]",
@@ -54,7 +55,7 @@
 	"apihelp-womoutput-paramvalue-type-xml": "{{doc-apihelp-paramvalue|womoutput|type|xml}}",
 	"apihelp-womoutput-param-rid": "{{doc-apihelp-param|womoutput|rid}}",
 	"apihelp-womwiki-summary": "{{doc-apihelp-summary|womwiki}}",
-	"apihelp-womwiki-param-wiki": "{{doc-apihelp-param|womwiki|wiki}}",
+	"apihelp-womwiki-param-wiki": "{{doc-apihelp-param|womwiki|wiki}}\n{{Identical|Wiki text}}",
 	"apihelp-womwiki-param-type": "{{doc-apihelp-param|womwiki|type}}",
 	"apihelp-womwiki-paramvalue-type-wiki": "{{doc-apihelp-paramvalue|womwiki|type|wiki}}",
 	"apihelp-womwiki-paramvalue-type-ask": "{{doc-apihelp-paramvalue|womwiki|type|ask}}",
