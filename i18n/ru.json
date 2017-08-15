@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Express2000"
+			"Express2000",
+			"Okras"
 		]
 	},
 	"objecteditor": "Редактор объектов",
 	"wom_editor": "Модель объекта",
-	"wom-desc": "Облегченная модель объекта страницы для вики-пользователя"
+	"wom-desc": "Облегченная модель объекта страницы для вики-пользователя",
+	"apihelp-womset-param-minor": "Малая правка.",
+	"apihelp-womwiki-param-wiki": "Викитекст."
 }
