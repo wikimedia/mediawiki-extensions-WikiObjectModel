@@ -10,5 +10,6 @@
 	"apihelp-womset-param-minor": "Kleng Ännerung.",
 	"apihelp-womset-param-notminor": "Keng kleng Ännerung",
 	"apihelp-womset-param-bot": "Dës Ännerung als Bot-Ännerung markéieren.",
-	"apihelp-womset-param-watch": "D'Säit op Är Iwwerwaachungslëscht bäisetzen."
+	"apihelp-womset-param-watch": "D'Säit op Är Iwwerwaachungslëscht bäisetzen.",
+	"apihelp-womwiki-param-wiki": "Wikitext."
 }

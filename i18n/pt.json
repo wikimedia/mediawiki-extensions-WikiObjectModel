@@ -2,10 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Luckas",
-			"SandroHc"
+			"SandroHc",
+			"Hamilton Abreu"
 		]
 	},
 	"objecteditor": "Editor de objetos",
 	"wom_editor": "Modelo de objetos",
-	"wom-desc": "Modelo de Objectos \"Easy Page\" para os utilizadores da wiki"
+	"wom-desc": "Modelo de Objectos \"Easy Page\" para os utilizadores da wiki",
+	"apihelp-womset-param-title": "Título da página a ser modificada.",
+	"apihelp-womset-param-verb": "Verbo a ser definido para alterar instâncias de objetos da wiki.",
+	"apihelp-womset-param-xpath": "xpath de tipo DOM para localizar instâncias de objetos WOM (http://www.w3schools.com/xpath/xpath_syntax.asp)\n* verb = update (atualizar), xpath para os elementos a serem atualizados\n* verb = attribute (atributo), xpath para os elementos, o atributo será atualizado\n* verb = insert (inserir), o elemento será inserido imediatamente antes do elemento especificado por xpath\n* verb = append (acrescentar), o elemento será acrescentado aos elementos filhos do elemento especificados por xpath\n* verb = remove (remover), xpath para o elemento a ser removido\n* verb = removeall (remover todos), xpath para os elementos a serem removidos.",
+	"apihelp-womset-param-text": "Valor a definir\nverb = attribute (atributo), nome_do_atributo=valor_do_atributo",
+	"apihelp-womset-param-summary": "Resumo da edição.",
+	"apihelp-womset-param-rid": "Identificador da revisão da página especificada - por omissão, será usado o da revisão mais recente (0)."
 }
