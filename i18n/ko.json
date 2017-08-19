@@ -14,7 +14,9 @@
 	"apihelp-womset-param-bot": "이 편집을 봇으로 표시합니다.",
 	"apihelp-womset-param-nocreate": "페이지가 존재하지 않으면 오류를 출력합니다.",
 	"apihelp-womset-param-captchaword": "CAPTCHA에 응답합니다.",
+	"apihelp-womget-paramvalue-type-wiki": "지정된 오브젝트의 위키 텍스트를 가져옵니다.",
 	"apihelp-womapi-param-...": "표준 api 변수입니다.",
 	"apihelp-womwiki-param-wiki": "위키 텍스트.",
-	"apihelp-womwiki-paramvalue-type-wiki": "위키 텍스트의 파서 결과를 가져옵니다."
+	"apihelp-womwiki-paramvalue-type-wiki": "위키 텍스트의 파서 결과를 가져옵니다.",
+	"apihelp-womquery-param-key": "쿼리 키입니다."
 }

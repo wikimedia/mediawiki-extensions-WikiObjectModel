@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Warrakkk"
+			"Warrakkk",
+			"WikiPhoenix"
 		]
 	},
 	"objecteditor": "Objektredigerare",
 	"wom_editor": "Objektmodell",
-	"wom-desc": "Enkel sidoobjektmodell för wikianvändare"
+	"wom-desc": "Enkel sidoobjektmodell för wikianvändare",
+	"apihelp-womset-param-minor": "Mindre redigering."
 }
