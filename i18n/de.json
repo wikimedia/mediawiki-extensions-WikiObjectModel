@@ -1,10 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kghbln"
+			"Kghbln",
+			"Metalhead64",
+			"Zuizui02"
 		]
 	},
 	"objecteditor": "Objekteditor",
 	"wom_editor": "Objektmodell",
-	"wom-desc": "Ermöglicht ein einfaches Objektmodell für Seiten"
+	"wom-desc": "Ermöglicht ein einfaches Objektmodell für Seiten",
+	"apihelp-womset-param-minor": "Kleine Bearbeitung.",
+	"apihelp-womapi-param-title": "Titel der zu verändernden Seite.",
+	"apihelp-womapi-param-...": "Standard-API-Parameter.",
+	"apihelp-womoutput-param-title": "Titel der zu verändernden Seite.",
+	"apihelp-womoutput-paramvalue-type-wiki": "Ruft den Wikitext des angegebenen Objekts ab.",
+	"apihelp-womwiki-param-wiki": "Wikitext."
 }

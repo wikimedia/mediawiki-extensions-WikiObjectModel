@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Naudefj"
+			"Naudefj",
+			"Biggs ZA"
 		]
 	},
 	"objecteditor": "Objek-redigeerder",
 	"wom_editor": "Objek-model",
-	"wom-desc": "Maklike bladsyobjek-model"
+	"wom-desc": "Maklike bladsyobjek-model",
+	"apihelp-womset-param-summary": "Redigeer opsomming.",
+	"apihelp-womwiki-param-wiki": "Wiki-teks."
 }
