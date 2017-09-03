@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Toliño",
-			"Elisardojm"
+			"Elisardojm",
+			"Banjo"
 		]
 	},
 	"objecteditor": "Editor de obxectos",
@@ -14,5 +15,7 @@
 	"apihelp-womset-param-bot": "Marcar esta edición como de bot.",
 	"apihelp-womset-param-watch": "Engadir esta páxina á súa lista de vixilancia.",
 	"apihelp-womset-param-unwatch": "Eliminar esta páxina da súa lista de vixilancia.",
-	"apihelp-womset-param-captchaword": "Resposta ó CAPTCHA."
+	"apihelp-womset-param-captchaword": "Resposta ó CAPTCHA.",
+	"apihelp-womget-param-title": "Título da páxina para modificar.",
+	"apihelp-womwiki-param-wiki": "Texto wiki."
 }
