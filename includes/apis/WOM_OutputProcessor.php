@@ -2,14 +2,7 @@
 if ( !defined( 'MEDIAWIKI' ) ) die;
 
 global $wgHooks, $wgParser;
-if ( defined( 'MW_SUPPORTS_PARSERFIRSTCALLINIT' ) ) {
-	$wgHooks['ParserFirstCallInit'][] = 'WOMOutputProcessor::smwgWTregisterParserFunctions';
-} else {
-	if ( class_exists( 'StubObject' ) && !StubObject::isRealObject( $wgParser ) ) {
-		$wgParser->_unstub();
-	}
-	WOMOutputProcessor::smwgWTregisterParserFunctions( $wgParser );
-}
+$wgHooks['ParserFirstCallInit'][] = 'WOMOutputProcessor::smwgWTregisterParserFunctions';
 
 global $wgOMOutputHookedParserFunctions;
 $wgOMOutputHookedParserFunctions = array(
