@@ -13,7 +13,6 @@ $wgOMScriptPath = $wgScriptPath . '/extensions/WikiObjectModel';
 
 $wgExtensionFunctions[] = 'wfWOMSetupExtension';
 $wgMessagesDirs['WikiObjectModel'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['WikiObjectModel'] = $wgOMIP . '/languages/Messages.php';
 
 require_once( $wgOMIP . '/includes/WOM_Setup.php' );
 
