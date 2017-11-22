@@ -22,5 +22,6 @@
 	"apihelp-womoutput-paramvalue-type-wiki": "Ruft den Wikitext des angegebenen Objekts ab.",
 	"apihelp-womwiki-param-wiki": "Wikitext.",
 	"apihelp-womwiki-paramvalue-type-wiki": "Ruft das Parserergebnis des Wikitextes ab.",
-	"apihelp-womquery-param-title": "Titel der zu verändernden Seite."
+	"apihelp-womquery-param-title": "Titel der zu verändernden Seite.",
+	"apihelp-womquery-param-key": "Abfrageschlüssel."
 }
